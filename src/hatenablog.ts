@@ -1,15 +1,14 @@
 import * as fs from "fs";
-import * as request from "request-promise";
-import * as puppeteer from "puppeteer";
 import * as jsSHA from "jssha";
-import { parentPort } from "worker_threads";
+import * as puppeteer from "puppeteer";
+import * as request from "request-promise";
 
 type Entry = {
   blogID: string;
   title: string;
   url: string;
   createAt: string;
-}
+};
 
 const directoryName = (entry: Entry) => `${entry.blogID}/${entry.createAt}-${entry.title.replace(/\//g, "／")}`;
 
@@ -17,30 +16,32 @@ export const mkdir = (entry: Entry) => {
   fs.mkdirSync(`./data/${directoryName(entry)}`, { recursive: true });
 };
 
-const getEntryLink = async(page: puppeteer.Page, blogID: string) => await page.evaluate((blogID: string) => {
-  const list = Array.from(document.querySelectorAll(".archive-entry-header"));
-  return list.map(l => {
-    const link = l.querySelector(".entry-title-link");
-    const url = link.getAttribute("href");
-    const dateYear = l.querySelector(".date-year").textContent;
-    const dateMonth = l.querySelector(".date-month").textContent;
-    const dateDay = l.querySelector(".date-day").textContent;
+const getEntryLink = async (page: puppeteer.Page, blogID: string) =>
+  await page.evaluate((blogID: string) => {
+    const list = Array.from(document.querySelectorAll(".archive-entry-header"));
+    return list.map((l) => {
+      const link = l.querySelector(".entry-title-link");
+      const url = link.getAttribute("href");
+      const dateYear = l.querySelector(".date-year").textContent;
+      const dateMonth = l.querySelector(".date-month").textContent;
+      const dateDay = l.querySelector(".date-day").textContent;
 
-    return {
-      blogID,
-      title: link.textContent,
-      url,
-      createAt: `${dateYear}-${dateMonth}-${dateDay} 00:00:00`
-    };
+      return {
+        blogID,
+        title: link.textContent,
+        url,
+        createAt: `${dateYear}-${dateMonth}-${dateDay} 00:00:00`,
+      };
+    });
+  }, blogID);
+
+const getNextFlag = async (page: puppeteer.Page) =>
+  await page.evaluate(() => {
+    const nextButtonElement = document.querySelector(".test-pager-next");
+    return nextButtonElement !== null;
   });
-}, blogID);
 
-const getNextFlag = async(page: puppeteer.Page) => await page.evaluate(() => {
-  const nextButtonElement = document.querySelector(".test-pager-next");
-  return nextButtonElement !== null;
-});
-
-export const entries = async(blogID: string, blogDomain: string) => {
+export const entries = async (blogID: string, blogDomain: string) => {
   const blogUrl = `https://${blogID}.${blogDomain}`;
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
@@ -53,15 +54,12 @@ export const entries = async(blogID: string, blogDomain: string) => {
   let entries = await getEntryLink(page, blogID);
   let nextFlag = await getNextFlag(page);
 
-  while(nextFlag) {
+  while (nextFlag) {
     pageCount += 1;
     await page.goto(`${blogUrl}/archive?page=${pageCount}`, { waitUntil: "networkidle0" });
     await page.waitFor(1000);
 
-    entries = [
-      ...entries,
-      ...await getEntryLink(page, blogID)
-    ];
+    entries = [...entries, ...(await getEntryLink(page, blogID))];
     nextFlag = await getNextFlag(page);
   }
 
@@ -84,7 +82,7 @@ type ParseFunctions = {
   parseLITag: (element: Element, indentLevel: number, functions: ParseFunctions) => string;
   parseHRTag: () => string;
   parseBlockquoteTag: (element: Element) => string;
-}
+};
 
 const parseFigureTag = (element: Element) => {
   const imgElement = element.getElementsByTagName("img")[0];
@@ -128,88 +126,106 @@ const parseIFRAMETag = (element: Element) => {
 const parseCiteTag = (element: Element, functions: ParseFunctions) => {
   const childNodes = Array.from(element.childNodes);
 
-  return childNodes.reduce((accumulator, node) => {
-    if (node.nodeName === "A") {
-      const aTagElement: Element = node as Element;
-      accumulator += functions.parseATag(aTagElement);
-    }
-    return accumulator;
-  }, "") + `
-`;
+  return (
+    childNodes.reduce((accumulator, node) => {
+      if (node.nodeName === "A") {
+        const aTagElement: Element = node as Element;
+        accumulator += functions.parseATag(aTagElement);
+      }
+      return accumulator;
+    }, "") +
+    `
+`
+  );
 };
 
 const parseSpanTag = (element: Element, functions: ParseFunctions) => {
   const childNodes = Array.from(element.childNodes);
 
-  return childNodes.reduce((accumulator, node) => {
-    if (node.nodeName === "IMG") {
-      const imgTagElement: Element = node as Element;
-      accumulator += functions.parseIMGTag(imgTagElement);
-    }
-    return accumulator;
-  }, "") + `
-`;
+  return (
+    childNodes.reduce((accumulator, node) => {
+      if (node.nodeName === "IMG") {
+        const imgTagElement: Element = node as Element;
+        accumulator += functions.parseIMGTag(imgTagElement);
+      }
+      return accumulator;
+    }, "") +
+    `
+`
+  );
 };
 
 const parsePTag = (element: Element, newlineFlag: boolean, functions: ParseFunctions) => {
   const childNodes = Array.from(element.childNodes);
 
-  return childNodes.reduce((accumulator, node) => {
-    if (node.nodeName === "#text") accumulator += node.textContent;
-    if (node.nodeName === "A") {
-      const aTagElement: Element = node as Element;
-      accumulator += functions.parseATag(aTagElement);
-    }
-    if (node.nodeName === "IFRAME") {
-      const iframeTagElement: Element = node as Element;
-      accumulator += functions.parseIFRAMETag(iframeTagElement);
-    }
-    if (node.nodeName === "CITE") {
-      const citeTagElement: Element = node as Element;
-      accumulator += functions.parseCiteTag(citeTagElement, functions);
-    }
-    if (node.nodeName === "SPAN") {
-      const spanTagElement: Element = node as Element;
-      accumulator += functions.parseSpanTag(spanTagElement, functions);
-    }
-    if (node.nodeName === "B") {
-      const bTagElement: Element = node as Element;
-      accumulator += `**${bTagElement.textContent}**`;
-    }
-    if (node.nodeName === "I") {
-      const iTagElement: Element = node as Element;
-      accumulator += `*${iTagElement.textContent}*`;
-    }
-    if (node.nodeName === "CODE") accumulator += `${"```"}${node.textContent}${"```"}`
-    if (node.nodeName === "BR") accumulator += `  
+  return (
+    childNodes.reduce((accumulator, node) => {
+      if (node.nodeName === "#text") accumulator += node.textContent;
+      if (node.nodeName === "A") {
+        const aTagElement: Element = node as Element;
+        accumulator += functions.parseATag(aTagElement);
+      }
+      if (node.nodeName === "IFRAME") {
+        const iframeTagElement: Element = node as Element;
+        accumulator += functions.parseIFRAMETag(iframeTagElement);
+      }
+      if (node.nodeName === "CITE") {
+        const citeTagElement: Element = node as Element;
+        accumulator += functions.parseCiteTag(citeTagElement, functions);
+      }
+      if (node.nodeName === "SPAN") {
+        const spanTagElement: Element = node as Element;
+        accumulator += functions.parseSpanTag(spanTagElement, functions);
+      }
+      if (node.nodeName === "B") {
+        const bTagElement: Element = node as Element;
+        accumulator += `**${bTagElement.textContent}**`;
+      }
+      if (node.nodeName === "I") {
+        const iTagElement: Element = node as Element;
+        accumulator += `*${iTagElement.textContent}*`;
+      }
+      if (node.nodeName === "CODE") accumulator += `${"```"}${node.textContent}${"```"}`;
+      if (node.nodeName === "BR")
+        accumulator += `  
 `;
 
-    return accumulator;
-  }, "") + (newlineFlag ? `  
-` : "");
+      return accumulator;
+    }, "") +
+    (newlineFlag
+      ? `  
+`
+      : "")
+  );
 };
 
 const parsePreTag = (element: Element) => {
   const childNodes = Array.from(element.childNodes);
 
-  return childNodes.reduce((accumulator, node) => {
-    if (node.nodeName === "#text") accumulator += node.textContent;
-    if (node.nodeName === "CODE") accumulator += node.textContent;
-    if (node.nodeName === "SPAN") {
-      const spanTagElement: Element = node as Element;
-      accumulator += spanTagElement.textContent;
-    }
-    return accumulator;
-  }, `
+  return (
+    childNodes.reduce(
+      (accumulator, node) => {
+        if (node.nodeName === "#text") accumulator += node.textContent;
+        if (node.nodeName === "CODE") accumulator += node.textContent;
+        if (node.nodeName === "SPAN") {
+          const spanTagElement: Element = node as Element;
+          accumulator += spanTagElement.textContent;
+        }
+        return accumulator;
+      },
+      `
 ${"```"}
-`) + `
+`,
+    ) +
+    `
 ${"```"}
 
-`;
+`
+  );
 };
 
 const parseBlockquoteTag = (element: Element) => {
-  return `> ${element.textContent}`
+  return `> ${element.textContent}`;
 };
 
 const parseHTag = (element: Element) => {
@@ -234,30 +250,33 @@ const parseLITag = (element: Element, indentLevel: number, functions: ParseFunct
     indentString += "  ";
   }
 
-  return childNodes.reduce((accumulator, node, index) => {
-    if (index === 0) accumulator += `${indentString}- `;
-    if (node.nodeName === "#text") accumulator += node.textContent.replace(/\n+$/, "\n");
-    if (node.nodeName === "A") {
-      const aTagElement: Element = node as Element;
-      accumulator += functions.parseATag(aTagElement);
-    }
-    if (node.nodeName === "P") {
-      const pTagElement: Element = node as Element;
-      accumulator += functions.parsePTag(pTagElement, false, functions);
-    }
-    if (node.nodeName === "SPAN") {
-      const spanTagElement: Element = node as Element;
-      accumulator += indentString + "  ";
-      accumulator += functions.parseSpanTag(spanTagElement, functions);
-    }
-    if (node.nodeName === "UL") {
-      const ulTagElement: Element = node as Element;
-      accumulator += functions.parseULTag(ulTagElement, indentLevel + 1, functions);
-    }
+  return (
+    childNodes.reduce((accumulator, node, index) => {
+      if (index === 0) accumulator += `${indentString}- `;
+      if (node.nodeName === "#text") accumulator += node.textContent.replace(/\n+$/, "\n");
+      if (node.nodeName === "A") {
+        const aTagElement: Element = node as Element;
+        accumulator += functions.parseATag(aTagElement);
+      }
+      if (node.nodeName === "P") {
+        const pTagElement: Element = node as Element;
+        accumulator += functions.parsePTag(pTagElement, false, functions);
+      }
+      if (node.nodeName === "SPAN") {
+        const spanTagElement: Element = node as Element;
+        accumulator += indentString + "  ";
+        accumulator += functions.parseSpanTag(spanTagElement, functions);
+      }
+      if (node.nodeName === "UL") {
+        const ulTagElement: Element = node as Element;
+        accumulator += functions.parseULTag(ulTagElement, indentLevel + 1, functions);
+      }
 
-    return accumulator.replace(/\n+$/, "\n");
-  }, "") + `
-`;
+      return accumulator.replace(/\n+$/, "\n");
+    }, "") +
+    `
+`
+  );
 };
 
 const parseULTag = (element: Element, indentLevel: number, functions: ParseFunctions) => {
@@ -286,7 +305,8 @@ const parseDivTag = (element: Element, functions: ParseFunctions) => {
   return childNodes.reduce((accumulator, node) => {
     const nodeElement: Element = node as Element;
 
-    if (nodeElement.className === "figure-image figure-image-fotolife") return accumulator + functions.parseFigureTag(nodeElement);
+    if (nodeElement.className === "figure-image figure-image-fotolife")
+      return accumulator + functions.parseFigureTag(nodeElement);
     if (nodeElement.tagName === "P") return accumulator + functions.parsePTag(nodeElement, true, functions);
     if (/^H\d$/.test(nodeElement.tagName)) return accumulator + functions.parseHTag(nodeElement);
     if (nodeElement.tagName === "UL") return accumulator + functions.parseULTag(nodeElement, 0, functions);
@@ -298,18 +318,18 @@ const parseDivTag = (element: Element, functions: ParseFunctions) => {
   }, "");
 };
 
-export const parseHTMLToMarkdown = async(entry: Entry) => {
+export const parseHTMLToMarkdown = async (entry: Entry) => {
   const browser = await puppeteer.launch({
     headless: true,
     defaultViewport: {
       width: 500,
       height: 150,
-    }
+    },
   });
   const page = await browser.newPage();
   await page.setDefaultNavigationTimeout(0);
 
-  await page.goto(entry.url, { waitUntil: "networkidle0"});
+  await page.goto(entry.url, { waitUntil: "networkidle0" });
   await page.addScriptTag({ url: "https://cdnjs.cloudflare.com/ajax/libs/jsSHA/2.4.0/sha256.js" });
   await page.waitFor(2000);
 
@@ -328,27 +348,27 @@ export const parseHTMLToMarkdown = async(entry: Entry) => {
     parseHRTag: parseHRTag.toString(),
     parseBlockquoteTag: parseBlockquoteTag.toString(),
     parseDivTag: parseDivTag.toString(),
-  }
+  };
 
   const dirName = directoryName(entry);
 
   const iframeTags = await page.$$(".entry-content iframe");
   if (iframeTags && iframeTags.length > 0) {
     for (let i = 0; i < iframeTags.length; i++) {
-      const title = (await(await iframeTags[i].getProperty("title")).jsonValue() as string).replace(/\//g, "／");
-      const url = (await(await iframeTags[i].getProperty("src")).jsonValue() as string);
+      const title = ((await (await iframeTags[i].getProperty("title")).jsonValue()) as string).replace(/\//g, "／");
+      const url = (await (await iframeTags[i].getProperty("src")).jsonValue()) as string;
 
       if (url) {
         const screenshotPage = await browser.newPage();
         await screenshotPage.setDefaultNavigationTimeout(0);
-  
+
         await screenshotPage.goto(url);
         await screenshotPage.waitFor(1000);
-  
+
         const shaObj = new jsSHA("SHA-256", "TEXT");
         shaObj.update(title);
         await screenshotPage.screenshot({
-          path: `./data/${dirName}/iframe-${shaObj.getHash("HEX")}.png`
+          path: `./data/${dirName}/iframe-${shaObj.getHash("HEX")}.png`,
         });
         await screenshotPage.close();
       }
@@ -387,8 +407,8 @@ export const parseHTMLToMarkdown = async(entry: Entry) => {
       parseULTag,
       parseLITag,
       parseHRTag,
-      parseBlockquoteTag
-    }
+      parseBlockquoteTag,
+    };
 
     return entryContentChildren.reduce((accumulator, element) => {
       if (element.className === "figure-image figure-image-fotolife") return accumulator + parseFigureTag(element);

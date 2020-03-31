@@ -6,14 +6,14 @@ export const exec = async (blogID: string, blogDomain: string) => {
   const entries = await hatenablog.entries(blogID, blogDomain);
 
   await Promise.all(
-    entries.map(async entry => {
+    entries.map(async (entry) => {
       hatenablog.mkdir(entry);
 
       let markdown = await hatenablog.parseHTMLToMarkdown(entry);
       markdown = await hatenablog.parseImageTag(entry, markdown);
       hatenablog.createMarkdown(entry, markdown);
       console.info(` \u001b[32m ${entry.title}`);
-    })
+    }),
   );
 
   console.info(" \u001b[32m Success");
