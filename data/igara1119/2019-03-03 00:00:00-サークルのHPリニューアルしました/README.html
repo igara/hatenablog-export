@@ -1,0 +1,1353 @@
+<style>
+/*
+
+Railscasts-like style (c) Visoft, Inc. (Damien White)
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #232323;
+  color: #e6e1dc;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #bc9458;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #c26230;
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-variable,
+.hljs-template-variable {
+  color: #a5c261;
+}
+
+.hljs-subst {
+  color: #519f50;
+}
+
+.hljs-tag,
+.hljs-name {
+  color: #e8bf6a;
+}
+
+.hljs-type {
+  color: #da4939;
+}
+
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-attr,
+.hljs-link {
+  color: #6d9cbe;
+}
+
+.hljs-params {
+  color: #d0d0ff;
+}
+
+.hljs-attribute {
+  color: #cda869;
+}
+
+.hljs-meta {
+  color: #9b859d;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #ffc66d;
+}
+
+.hljs-addition {
+  background-color: #144212;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #600;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-selector-class {
+  color: #9b703f;
+}
+
+.hljs-selector-id {
+  color: #8b98ab;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'%3E%3C/path%3E%3C/svg%3E");
+}.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #24292e;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  font-weight: 700;
+  color: #22863a;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  font-weight: 700;
+  color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+  font-style: italic;
+  color: #24292e;
+}
+
+.markdown-body .pl-mb {
+  font-weight: 700;
+  color: #24292e;
+}
+
+.markdown-body .pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+  font-weight: 700;
+  color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #6a737d;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+  background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+}
+
+.markdown-body .commit-tease-sha {
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 90%;
+  color: #444d56;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+  color: #005cc5;
+  border-color: #005cc5;
+}
+
+.markdown-body .blob-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  width: 1%;
+  min-width: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  color: rgba(27,31,35,.3);
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  position: relative;
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  overflow: visible;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  color: #24292e;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  cursor: pointer;
+  background: #ffea7f;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+</style><div class="markdown-body">
+  <img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2019-03-03 00:00:00-サークルのHPリニューアルしました/0-img-tag.png" alt="f:id:igara1119:20190303145348p:plain" title="f:id:igara1119:20190303145348p:plain" class="hatena-fotolife" itemprop="image">
+平成の終わりが近いですね
+
+
+<h2 id="先にサークル現状の報告">先にサークル現状の報告</h2>
+<p>この場を借りて先に今のサークル（shin・DO・meeeee）がどうしているのかという報告をさせていただきます。<br>結論言ってしまうと
+先月の2月5日に 技術書典6 のサークル当落通知というのがあって落選してしまったので技術書典6には参加しません。<br>技術書典5以降の技術書典6に向けたサークル内部の動きとして  </p>
+<ul>
+<li>GitLabのサブプロジェクト機能・issues board機能使っていい感じに細かいタスクの可視化<img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2019-03-03 00:00:00-サークルのHPリニューアルしました/1-img-tag.png" alt="f:id:igara1119:20190303145554p:plain" title="f:id:igara1119:20190303145554p:plain" class="hatena-fotolife" itemprop="image"></li>
+<li>Hangoutで打ち合わせするようになった
+とかあって前回とは違った問題解決できてきたなぁと思ったんですけどね。  <h2 id="hpリニューアルしました">HPリニューアルしました</h2>
+</li>
+</ul>
+<p>こちらになります。<br><a href="https://shindomeeee.github.io/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2019-03-03 00:00:00-サークルのHPリニューアルしました/iframe-3ad6b13db57a12b1282c482e7b01dd056112daadef1a47e7e7e6c3db53e617b8.png" alt="shin・DO・meeeee"></a>
+<a href="https://shindomeeee.github.io/">shindomeeee.github.io</a></p>
+<p>リニューアルをおこなった理由としては先ほどのissues boardの画像で目移りしたかもしれませんが<br>ホームページメンテしんどい問題<br>があって告知用とかマルチに使おうとして結果的に放置されてしまったというのがありました。
+HPの作成段階では実績もなく <a href="https://github.com/shindomeeee/shindomeeee.github.io/pull/3">なんとなくなデザイン作成</a> とかの負債があったなぁと感じてあのHPの立ち位置を考え直し、  </p>
+<ul>
+<li>みんなブログなら記載する</li>
+<li>実績のみ載せるLP的なページの認識であった方がライトで良さそう
+というのに気づいて思い切って今までのホームページを捨てることにしました。<br>HPにあるリンクとかもGoogleのスプレットシートで管理するようにしたのでよりサークル内部の情報をまとめやすくなったんじゃないかなと思っています。<img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2019-03-03 00:00:00-サークルのHPリニューアルしました/2-img-tag.png" alt="f:id:igara1119:20190303152113p:plain" title="f:id:igara1119:20190303152113p:plain" class="hatena-fotolife" itemprop="image">
+
+
+</li>
+</ul>
+<p>あとはイラストなど素材も充実してきたのでHPにも導入するようになったのも大きな変更です。
+（あのイラストは汎用性高いので気に入ってます。  </p>
+<h2 id="ここから玄人（バイニン）向け">ここから玄人（バイニン）向け</h2>
+<p>あのHPを僕1人でメンテするのもあれで、やったこと結構エグいのが多かったのでナレッジ残す意味あいで色々記載します。
+※記載している内容はほとんど僕の趣味によるものが強いです。  </p>
+<h3 id="blogs一覧取得api作成">Blogs一覧取得API作成</h3>
+<ul>
+<li>API・DBはFirebaseのCloud Firestore(最近GAになったらしいですね</li>
+<li>マスタ管理としてSpreadSheet</li>
+<li>SpreadSheet -&gt; Cloud Firestoreにデータ反映する仕組みとしてGoogle Apps Scriptを使用しています。
+図にするとこんな感じです  <img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2019-03-03 00:00:00-サークルのHPリニューアルしました/3-img-tag.png" alt="f:id:igara1119:20190303162325p:plain" title="f:id:igara1119:20190303162325p:plain" class="hatena-fotolife" itemprop="image">
+
+
+</li>
+</ul>
+<p>なぜの構成にしたかというとサークルメンバーのGoogleアカウントわかっていたのでIAM管理もGoogleにさせてしまった方が楽だったからです。  </p>
+<h4 id="cloud-firestoreの設定">Cloud Firestoreの設定</h4>
+<h5 id="ルール">ルール</h5>
+<p>SpreadSheetに入力できてFirebaseのロールを持っている人への書込み権限
+一覧のデータを取得するための読み込み権限
+を下記のようなので設定  </p>
+<pre><code><span class="hljs-attr">service</span> <span class="hljs-string">cloud.firestore {</span>
+  <span class="hljs-attr">match</span> <span class="hljs-string">/databases/{database}/documents {</span>
+    <span class="hljs-attr">match</span> <span class="hljs-string">/blogs/{document=**} {</span>
+      <span class="hljs-attr">allow</span> <span class="hljs-string">read;</span>
+      <span class="hljs-attr">allow</span> <span class="hljs-string">write: if request.auth;</span>
+      <span class="hljs-attr">allow</span> <span class="hljs-string">delete: if request.auth;</span>
+    <span class="hljs-attr">}</span>
+    <span class="hljs-attr">match</span> <span class="hljs-string">/events/{document=**} {</span>
+      <span class="hljs-attr">allow</span> <span class="hljs-string">read;</span>
+      <span class="hljs-attr">allow</span> <span class="hljs-string">write: if request.auth;</span>
+      <span class="hljs-attr">allow</span> <span class="hljs-string">delete: if request.auth;</span>
+    <span class="hljs-attr">}</span>
+  <span class="hljs-attr">}</span>
+<span class="hljs-attr">}</span>
+</code></pre><h4 id="spreadsheetの設定">SpreadSheetの設定</h4>
+<img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2019-03-03 00:00:00-サークルのHPリニューアルしました/4-img-tag.png" alt="f:id:igara1119:20190303170609p:plain" title="f:id:igara1119:20190303170609p:plain" class="hatena-fotolife" itemprop="image">
+
+
+<p>CSVにすると  </p>
+<pre><code>id,title,url,tags,created<span class="hljs-emphasis">_at,document_</span>id
+1,技術書典5当選しました！！！,<span class="hljs-link">https://ultrabirdtech.hatenablog.com/entry/2018/08/02/065033,</span>[<span class="hljs-string">"技術書典", "技術書典5"</span>],2018-08-02,hogehoge</code></pre><p>な構成にし、列の説明として  </p>
+<ul>
+<li>id -&gt; 順番</li>
+<li>title -&gt; ブログタイトル</li>
+<li>tags -&gt; 現在使用してないけど絞り込み検索とかで使用する想定</li>
+<li>created_at -&gt; ブログの公開日</li>
+<li>document_id -&gt; Firestoreのdocument_id
+な感じで  <img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2019-03-03 00:00:00-サークルのHPリニューアルしました/5-img-tag.png" alt="f:id:igara1119:20190303171445p:plain" title="f:id:igara1119:20190303171445p:plain" class="hatena-fotolife" itemprop="image">
+
+
+</li>
+</ul>
+<p>SpreadSheet上に描画ツールで作成した更新ボタンにGoogle Apps Scriptのスクリプトを割り当てできるようにします。  </p>
+<h4 id="google-apps-script">Google Apps Script</h4>
+<p>Google Apps Script経由でSpreadSheetの内容取得、Firestoreに書込みができるように
+マニフェストファイルを編集します<br>appsscript.json  </p>
+<pre><code>{
+  <span class="hljs-attr">"timeZone"</span>: <span class="hljs-string">"Asia/Tokyo"</span>,
+  <span class="hljs-attr">"dependencies"</span>: {
+    <span class="hljs-attr">"libraries"</span>: []
+  },
+  <span class="hljs-attr">"exceptionLogging"</span>: <span class="hljs-string">"STACKDRIVER"</span>,
+  <span class="hljs-attr">"oauthScopes"</span>: [
+    <span class="hljs-string">"https://www.googleapis.com/auth/firebase.database"</span>,
+    <span class="hljs-string">"https://www.googleapis.com/auth/script.external_request"</span>,
+    <span class="hljs-string">"https://www.googleapis.com/auth/spreadsheets.currentonly"</span>,
+    <span class="hljs-string">"https://www.googleapis.com/auth/spreadsheets"</span>,
+    <span class="hljs-string">"https://www.googleapis.com/auth/datastore"</span>
+  ]
+}
+</code></pre><p>肝心なのがoauthScopesで  </p>
+<ul>
+<li><a href="https://www.googleapis.com/auth/script.external_request">https://www.googleapis.com/auth/script.external_request</a>
+外部にリクエストするUrlFetchApp.fetchの使用を許可</li>
+<li><a href="https://www.googleapis.com/auth/spreadsheets.currentonly">https://www.googleapis.com/auth/spreadsheets.currentonly</a></li>
+<li><a href="https://www.googleapis.com/auth/spreadsheets">https://www.googleapis.com/auth/spreadsheets</a>
+SpreadSheetの内容を取得するために必要</li>
+<li><a href="https://www.googleapis.com/auth/firebase.database">https://www.googleapis.com/auth/firebase.database</a></li>
+<li><a href="https://www.googleapis.com/auth/datastore">https://www.googleapis.com/auth/datastore</a>
+Firestoreに書込むために必要
+で追加してます。<br>あとはスクリプトの追加で<br>blogs.gs  </li>
+</ul>
+<pre><code><span class="hljs-keyword">function</span> set<span class="hljs-constructor">Blogs()</span> {
+  <span class="hljs-comment">// 列の扱うデータの配置</span>
+  const columnNumbers = {
+    id: <span class="hljs-number">0</span>,
+    title: <span class="hljs-number">1</span>,
+    url: <span class="hljs-number">2</span>,
+    tags: <span class="hljs-number">3</span>,
+    created_at: <span class="hljs-number">4</span>,
+    document_id: <span class="hljs-number">5</span>
+  }
+
+  const rowNumbers = {
+    <span class="hljs-comment">// 列名がある箇所の配置</span>
+    scheme: <span class="hljs-number">0</span>
+  }
+  const apiUrl = <span class="hljs-string">"https://firestore.googleapis.com/v1/projects/(project id)/databases/(default)/documents/blogs"</span>
+  <span class="hljs-comment">// 後にdocument_idを取得するために使用</span>
+  const removeString = <span class="hljs-string">"projects/(project id)/databases/(default)/documents/blogs/"</span>
+
+  <span class="hljs-comment">// マニフェストファイル(appsscript.json)にあるoauthScopesで許可されたoauth tokenを取得</span>
+  const token = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">ScriptApp</span>.</span></span>get<span class="hljs-constructor">OAuthToken()</span>
+  const headers = {
+    authorization: <span class="hljs-string">"Bearer "</span> + token
+  }
+
+  <span class="hljs-comment">// 対象のSpreadSheetのURL</span>
+  const url = <span class="hljs-string">"https://docs.google.com/spreadsheets/d/(SpreadSheet ID)"</span>
+  const spreadsheet = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">SpreadsheetApp</span>.</span></span><span class="hljs-keyword">open</span><span class="hljs-constructor">ByUrl(<span class="hljs-params">url</span>)</span>
+  <span class="hljs-comment">// SpreadSheetの読み込みたいシート</span>
+  const blogsSheet = spreadsheet.get<span class="hljs-constructor">SheetByName('<span class="hljs-params">blogs</span>')</span>
+  const blogsData = blogsSheet.get<span class="hljs-constructor">DataRange()</span>.get<span class="hljs-constructor">Values()</span>
+  <span class="hljs-comment">// IDの逆の順番にする(最新のものを先に登録させるため Firestore REST APIのorderBy asc があれば...)</span>
+  blogsData.reverse<span class="hljs-literal">()</span>.pop<span class="hljs-literal">()</span>
+
+  blogsData.for<span class="hljs-constructor">Each(<span class="hljs-params">function</span>(<span class="hljs-params">blog</span>, <span class="hljs-params">rowIndex</span>)</span> {
+    const id = blog<span class="hljs-literal">[<span class="hljs-identifier">columnNumbers</span>.<span class="hljs-identifier">id</span>]</span>
+    const title = blog<span class="hljs-literal">[<span class="hljs-identifier">columnNumbers</span>.<span class="hljs-identifier">title</span>]</span>
+    const url = blog<span class="hljs-literal">[<span class="hljs-identifier">columnNumbers</span>.<span class="hljs-identifier">url</span>]</span>
+    const tags = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">JSON</span>.</span></span>parse(blog<span class="hljs-literal">[<span class="hljs-identifier">columnNumbers</span>.<span class="hljs-identifier">tags</span>]</span>)
+    const created_at = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Date(<span class="hljs-params">blog</span>[<span class="hljs-params">columnNumbers</span>.<span class="hljs-params">created_at</span>])</span>.<span class="hljs-keyword">to</span><span class="hljs-constructor">ISOString()</span>
+
+    <span class="hljs-keyword">if</span> (blog<span class="hljs-literal">[<span class="hljs-identifier">columnNumbers</span>.<span class="hljs-identifier">document_id</span>]</span>) {
+      const targetDocumentId = blog<span class="hljs-literal">[<span class="hljs-identifier">columnNumbers</span>.<span class="hljs-identifier">document_id</span>]</span>
+      const deleteOptions = {
+        <span class="hljs-keyword">method</span>: <span class="hljs-string">"delete"</span>,
+        contentType: <span class="hljs-string">"application/json"</span>,
+        headers: headers,
+        muteHttpExceptions: <span class="hljs-literal">true</span>
+      }
+      const deleteResponse = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">UrlFetchApp</span>.</span></span>fetch(apiUrl + <span class="hljs-string">"/"</span> + targetDocumentId , deleteOptions)
+      const deleteResponseCode = deleteResponse.get<span class="hljs-constructor">ResponseCode()</span>
+      const deleteResponseBody = deleteResponse.get<span class="hljs-constructor">ContentText()</span>
+
+      <span class="hljs-keyword">if</span> (deleteResponseCode<span class="hljs-operator"> === </span><span class="hljs-number">200</span>) {
+        const deleteResponseJson = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">JSON</span>.</span></span>parse(deleteResponseBody)
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Logger</span>.</span></span>log(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Utilities</span>.</span></span>format<span class="hljs-constructor">String(<span class="hljs-string">"Request failed. Expected 200, got %d: %s"</span>, <span class="hljs-params">deleteResponseCode</span>, <span class="hljs-params">deleteResponseBody</span>)</span>)
+      }
+    }
+
+    <span class="hljs-keyword">if</span> (id<span class="hljs-operator"> &amp;&amp; </span>title<span class="hljs-operator"> &amp;&amp; </span>url<span class="hljs-operator"> &amp;&amp; </span>tags<span class="hljs-operator"> &amp;&amp; </span>created_at) {
+      const createPayload = {
+        fields: {
+          id: {
+            integerValue: rowIndex + <span class="hljs-number">1</span>
+          },
+          title: {
+            stringValue: title
+          },
+          url: {
+            stringValue: url
+          },
+          tags: {
+            arrayValue: {
+              values: tags.map(<span class="hljs-keyword">function</span>(tag) {
+                return {stringValue: tag}
+              })
+            }
+          },
+          created_at: {
+            timestampValue: created_at
+          }
+        }
+      }
+
+      const createOptions = {
+        <span class="hljs-keyword">method</span>: <span class="hljs-string">"post"</span>,
+        contentType: <span class="hljs-string">"application/json"</span>,
+        payload: <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">JSON</span>.</span></span>stringify(createPayload),
+        headers: headers,
+        muteHttpExceptions: <span class="hljs-literal">true</span>
+      }
+      const createResponse = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">UrlFetchApp</span>.</span></span>fetch(apiUrl, createOptions)
+      const createResponseCode = createResponse.get<span class="hljs-constructor">ResponseCode()</span>
+      const createResponseBody = createResponse.get<span class="hljs-constructor">ContentText()</span>
+
+      <span class="hljs-keyword">if</span> (createResponseCode<span class="hljs-operator"> === </span><span class="hljs-number">200</span>) {
+        const createResponseJson = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">JSON</span>.</span></span>parse(createResponseBody)
+        const documentId = createResponseJson.name.replace(removeString, <span class="hljs-string">""</span>)
+        blogsSheet.get<span class="hljs-constructor">Range(<span class="hljs-params">id</span> + 1, <span class="hljs-params">columnNumbers</span>.<span class="hljs-params">document_id</span> + 1)</span>.set<span class="hljs-constructor">Value(<span class="hljs-params">documentId</span>)</span>
+      } <span class="hljs-keyword">else</span> {
+        <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Logger</span>.</span></span>log(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Utilities</span>.</span></span>format<span class="hljs-constructor">String(<span class="hljs-string">"Request failed. Expected 200, got %d: %s"</span>, <span class="hljs-params">createResponseCode</span>, <span class="hljs-params">createResponseBody</span>)</span>)
+      }
+    }
+  })
+}
+</code></pre><p>な感じで雑にSpreadSheetにあるデータを正とするためにFirestore上のデータ全消しした後で再度追加するようにしてます。<br>このスクリプトに先ほどSpreadSheetのボタンにスクリプトの割り当てをすることでボタンから更新することが可能になります。  </p>
+<h3 id="フロント実装">フロント実装</h3>
+<p><a href="https://github.com/shindomeeee/shindomeeee.github.io/pull/15/files"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2019-03-03 00:00:00-サークルのHPリニューアルしました/iframe-18e49c3ea7ff55d7c7dcc9a6d78f32edc6d89377232d0eab5130573740f506d6.png" alt="Feature／new site by igara · Pull Request #15 · shindomeeee／shindomeeee.github.io"></a>
+<a href="https://github.com/shindomeeee/shindomeeee.github.io/pull/15/files">github.com</a></p>
+<p>がっつり変更入れてるので現在(2018/03/03時点)でもPR中にしてます。  </p>
+<h4 id="昔ながらのpublic_html-に-自身で編集したindexhtml-置くような運用辞めた">昔ながらのpublic_html に 自身で編集したindex.html 置くような運用辞めた</h4>
+<p>どう言ったことというと以前はindex.html, css, jsを直接変更していたのを辞めたということです。
+いわゆるジェネレータやbundlerのようなものを用いていなかったため新しいページを作成するときはディレクトリ切ってindex.htmlを設置し、共通で変更必要なものを都度都度index.htmlを直すようなことを辞めました。
+なぜ今までこのような運用していたのかというとサークルのみんながどのようなの得意としているのか理解していなかったのもあり一番共通な認識でできるだろうと当時思っていたのですが、結果としていじる側にしんどみが出てしまっていたという風に感じています。  </p>
+<h4 id="ジェネレータとしてgatsbyjsにした">ジェネレータとしてGatsbyJSにした</h4>
+<p>GatsbyJSのベースとなるReactJSを用いるため別の学習コストが発生してしまっているのですがここは僕が率先してできるので無理やりに選定しました。
+Vueベースなものを扱うというのもありましたがTypeScriptで補完が効くようにすぐに作れるのが僕の中でReactだったのでGatsbyJSにしたというのがあります。
+知り合いでよくJekyllで作ったGitHub Pagesを見てたりしてたのですが僕個人としてフロントで動的に見させたい需要が強かったのでNodeJSよりのものを選びました。  </p>
+<h4 id="デプロイ周りの変更">デプロイ周りの変更</h4>
+<p>GitHub Pagesのホスティングの仕組みとしてmasterブランチのものが静的サイトとして公開されるようになっていて
+以前は様々な対応したものをPR出してmasterブランチに反映されて初めて公開されるような運用していました。<br>しかし今はmasterブランチとは別でdevelopブランチをデフォルトブランチとし、
+yarn deployを実行することでmasterブランチ以外でもすぐにmasterブランチにあげて
+GitHub Pagesに反映されたものを確認するようにしました。
+yarn deploy と言っても厳密には
+gatsby build と NodeJSライブラリのgh-pagesによるmasterブランチ反映をさせています。  </p>
+<h4 id="型システム--コンポーネント思考--できるだけすぐに捨てられるように対応">型システム &amp; コンポーネント思考 &amp; できるだけすぐに捨てられるように対応</h4>
+<p>CSSの運用はCSS Modulesでやるようにしました。
+Reactならstyled-componentsでやる手段もありますがelementとstyleが密結合すぎると感じて基本的なhtmlとcssで運用した方が良いと感じてCSS Modulesでやるようにしてます。
+CSSのやつもNodeJSライブラリのtyped-css-modulesを用いれば型定義化され補完が効くようにできるのでそうしてます。
+あと型導入によってAPIとして使用しているFirestoreが返してくるJSONの形(<a href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/src/thunks/blogs.ts#L14-L39">これとか</a>)であったり、
+よく困惑するコンポーネントが持つ独自の状態(<a href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/src/components/index/wrapper.tsx#L35-L43">これとか</a>やってることとして背景画像が読み込まれたことを保証して背景画像のアニメーションをするようにするためのstate変更をさせる実装してます)
+というのも型化されて見通しいいように？しました。  </p>
+<h4 id="jest導入">jest導入</h4>
+<p>Reduxによる状態変更テスト以外に独自のコンポーネントのテストも行うようにして作成したテストファイルに対して必ずカバレッジが100%になるように頑張ってます。<br><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2019-03-03 00:00:00-サークルのHPリニューアルしました/6-img-tag.png" alt="f:id:igara1119:20190303183634p:plain" title="f:id:igara1119:20190303183634p:plain" class="hatena-fotolife" itemprop="image"></p>
+<p>API周りはモック使用したり(<a href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/tests/thunks/blogs.test.ts#L103-L168">これとか</a>)、
+デフォルトの値をモックしたりとか(<a href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/tests/components/seo.test.tsx#L166-L205">これとか</a>)、
+画像の読み込み完了時にstate変更されるようなテストをjest.spyOn使用したとか(<a href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/tests/components/index/wrapper.test.tsx#L24-L38">これとか</a>)あります。<br>UI周りはBlogs一覧でリンク何個あるかのテストとかはやってますがどういったスタイル当たるかというかまでやってません。
+（そこに関してはjestによるテストというか自動でスクリーンショットとるかstorybookによるもので担保するのが疲弊しないんじゃないかと個人的に思っています  </p>
+
+</div>

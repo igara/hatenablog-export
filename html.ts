@@ -29,7 +29,7 @@ const exec = () => {
       });
       body = body.replace(
         /src="/g,
-        `src="https://raw.githubusercontent.com/${repositoryName}/master/data/${qiitaIDDirectoryName}/${qiitaItemDirectoryName}/`,
+        `src="https://raw.githubusercontent.com/${repositoryName}/master/data/${blogDirectoryName}/${blogItemDirectoryName}/`,
       );
 
       body = `<div class="markdown-body">
