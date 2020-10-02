@@ -10,7 +10,7 @@ type Entry = {
   createAt: string;
 };
 
-const directoryName = (entry: Entry) => `${entry.blogID}/${entry.createAt}-${entry.title.replace(/\//g, "／")}`;
+const directoryName = (entry: Entry) => `${entry.blogID}/${entry.createAt} ${entry.title.replace(/\//g, "／")}`;
 
 export const mkdir = (entry: Entry) => {
   fs.mkdirSync(`./data/${directoryName(entry)}`, { recursive: true });
@@ -30,7 +30,7 @@ const getEntryLink = async (page: puppeteer.Page, blogID: string) =>
         blogID,
         title: link.textContent,
         url,
-        createAt: `${dateYear}-${dateMonth}-${dateDay} 00:00:00`,
+        createAt: `${dateYear}-${dateMonth}-${dateDay} 00-00-00`,
       };
     });
   }, blogID);
