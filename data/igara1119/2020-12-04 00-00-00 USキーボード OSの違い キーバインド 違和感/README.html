@@ -1,0 +1,1196 @@
+<style>
+/*
+
+Railscasts-like style (c) Visoft, Inc. (Damien White)
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #232323;
+  color: #e6e1dc;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #bc9458;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #c26230;
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-variable,
+.hljs-template-variable {
+  color: #a5c261;
+}
+
+.hljs-subst {
+  color: #519f50;
+}
+
+.hljs-tag,
+.hljs-name {
+  color: #e8bf6a;
+}
+
+.hljs-type {
+  color: #da4939;
+}
+
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-attr,
+.hljs-link {
+  color: #6d9cbe;
+}
+
+.hljs-params {
+  color: #d0d0ff;
+}
+
+.hljs-attribute {
+  color: #cda869;
+}
+
+.hljs-meta {
+  color: #9b859d;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #ffc66d;
+}
+
+.hljs-addition {
+  background-color: #144212;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #600;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-selector-class {
+  color: #9b703f;
+}
+
+.hljs-selector-id {
+  color: #8b98ab;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'%3E%3C/path%3E%3C/svg%3E");
+}.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #24292e;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  font-weight: 700;
+  color: #22863a;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  font-weight: 700;
+  color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+  font-style: italic;
+  color: #24292e;
+}
+
+.markdown-body .pl-mb {
+  font-weight: 700;
+  color: #24292e;
+}
+
+.markdown-body .pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+  font-weight: 700;
+  color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #6a737d;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+  background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+}
+
+.markdown-body .commit-tease-sha {
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 90%;
+  color: #444d56;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+  color: #005cc5;
+  border-color: #005cc5;
+}
+
+.markdown-body .blob-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  width: 1%;
+  min-width: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  color: rgba(27,31,35,.3);
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  position: relative;
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  overflow: visible;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  color: #24292e;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  cursor: pointer;
+  background: #ffea7f;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+</style><div class="markdown-body">
+  <p>この記事は <a href="https://qiita.com/advent-calendar/2020/lancers">Lancers（ランサーズ） Advent Calendar 2020</a>の5日目の記事になります。<br><a href="https://qiita.com/advent-calendar/2020/lancers"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-5c7f1fc6a836f63edb4ce4712fa4829bb1812c4aa77216cc71b397f61cbd4db5.png" alt="                                                                                                                                                        Lancers（ランサーズ） Advent Calendar 2020 - Qiita"></a>
+<a href="https://qiita.com/advent-calendar/2020/lancers">qiita.com</a></p>
+<ul>
+<li><a href="#%E3%81%BE%E3%81%88%E3%81%8C%E3%81%8D">まえがき</a></li>
+<li><a href="#%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AD%98-%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E9%85%8D%E5%88%97">前提知識: 使用しているキーボードの配列</a></li>
+<li><a href="#%E3%81%BB%E3%82%93%E3%81%A0%E3%81%84">ほんだい</a>  - <a href="#%E5%85%88%E3%81%AB%E6%B3%A8%E6%84%8F">先に注意</a><ul>
+<li><a href="#%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88%E3%81%AE%E5%85%B1%E9%80%9A%E5%8C%96">日本語入力切り替えの共通化</a></li>
+<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%81%AE%E5%85%B1%E9%80%9A%E5%8C%96">ショートカットキーの共通化</a></li>
+<li><a href="#%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%85%B1%E9%80%9A%E5%8C%96">クリップボードの共通化</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="#%E3%81%95%E3%81%84%E3%81%94%E3%81%AB">さいごに</a><h3 id="まえがき">まえがき</h3>
+</li>
+</ul>
+<p>システム開発している 五十嵐です。<br>この記事は、2020年弊社アドベントカレンダー キーボードについて書く枠 代表として書きたかったので書きました。  </p>
+<p>数少ないErgodox派としてのアウトプットをしたいというのもあります。  </p>
+<p>半年前、こんな記事書いててなんやかんやでこのキーボードに慣れました。<br><a href="https://igara1119.hatenablog.com/entry/2020/05/10/002501"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-392a563febb215a912ac43489279b68e6e3f527a797c5d60ffed0d429b370c41.png" alt="Ergodox EZ キーボードのカスタム - 無銘雑記"></a>
+<a href="https://igara1119.hatenablog.com/entry/2020/05/10/002501">igara1119.hatenablog.com</a></p>
+<p>とはいえ、業務に関係ないですけど最近は個人のWindows機ともキーボード併用してて、  </p>
+<p>macOSとWindowsのOSの違いによる同じ操作感で使用できない問題点が出てきてたので  </p>
+<p>どのようにして問題解決したのかを重点的に記載できればと思います。<br>記事のタイトルにErgodox入れなかったのは、USキーボードだったら共通の話題になるのかなぁと思い、外しています。  </p>
+<h3 id="前提知識-使用しているキーボードの配列">前提知識: 使用しているキーボードの配列</h3>
+<img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/0-img-tag.png" alt="f:id:igara1119:20201203225946p:plain" title="" class="hatena-fotolife" itemprop="image">
+
+
+<p>上記はMacbookのUSキーボードの配列に近い形に設置しています。<br>例えば  </p>
+<ul>
+<li>左上Esc</li>
+<li>左上Tab</li>
+<li>左下・右下Shift</li>
+<li>下側にCommand, Option
+ちょっと例外的な配列で  </li>
+<li>左親指位置にEnter, Space, Backspace, Delete</li>
+<li>左下Control
+（MacBookでCaps LookをControlに置き換える作業ってみんなやらない？）</li>
+<li>右親指位置にEsc, Tab, Up, Down, Left, Right
+※この配列は若干ターミナル操作を意識したものにしてますが実際はEsc, Tab左上のを使うことが多いです。
+実際の写真で見るとわかるのですがDownが大きめの記号のShiftキーを下方向に反転させてます。
+カーソル操作でめっちゃガチャガチャするときなどに、このデコボコしてる感がいい感じに手に馴染みます。<img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/1-img-tag.jpg" alt="f:id:igara1119:20201203233043j:plain" title="" class="hatena-fotolife" itemprop="image">
+
+
+</li>
+</ul>
+<p>そもそもなんでUSキーボードを使うようになったかというと  </p>
+<p>たまにデフォルトの入力作業がUS配列というものがあるからUSキーボードに慣れてた方が良いと思ったのがあります。  </p>
+<p>（最近はあまりないですがRaspberry PiとかLinuxサーバ上のターミナル作業とか）  </p>
+<h3 id="ほんだい">ほんだい</h3>
+<h4 id="先に注意">先に注意</h4>
+<p>Windowsのキーボード操作改善のためにAutoHotKeyを使用した方法を記載しています。  </p>
+<p><strong>一部、チート対策や自動化作業によるマクロ対策がされているソフトウェアを起動できなくなる可能性がありますのでその際はこのマクロを停止してから実行するようにお願いします。</strong>  </p>
+<p>（実際、某オンラインゲームを起動しようとしたらAutoHotKeyが原因で起動できなかった）  </p>
+<h4 id="日本語入力切り替えの共通化">日本語入力切り替えの共通化</h4>
+<p>macOSでは ⌘英かな というアプリケーション使って左右のCommandキーで英字 / 日本語入力の切り替えを行っています。<br><a href="https://github.com/iMasanari/cmd-eikana"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-776a1d330be32d1ce38a00afbe619f01238e835bfe0a3aaad9ee6474613c6c59.png" alt="iMasanari／cmd-eikana"></a>
+<a href="https://github.com/iMasanari/cmd-eikana">github.com</a></p>
+<p>前はKarabiner-Elementsで切り替えしてましたがOSアップデートのタイミングで使えなくなることが多かったので最近はこちらのアプリを使うことが多いです。<br>Windowsでは CommandキーがWindowsキー扱いされるのでAutoHotKeyというソフトウェアを使ってWIndowsキー押したら日本語入力するようなマクロを起動するようにしました。<br><a href="https://github.com/igara/ergodox-jp-autohotkey"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-36716317032eb27caf04a5bea66cc653e3481daa2e5247deaedca27e7a768cfd.png" alt="igara／ergodox-jp-autohotkey"></a>
+<a href="https://github.com/igara/ergodox-jp-autohotkey">github.com</a></p>
+<p>マクロの内容として該当する箇所がこちらになります。<br><a href="https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L1-L15">https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L1-L15</a>  </p>
+<h4 id="ショートカットキーの共通化">ショートカットキーの共通化</h4>
+<p>OSの違いによるキーボードの操作の違いとしてショートカットキー（ホットキー）の違いや  </p>
+<p>macOSではCommandキーをよく使うけど  </p>
+<p>WindowsではControlキーをよく使うなどソフトウェアでの違いがあったりすると思います。<br>macOS側は特別な設定をしていないです。<br>Windows側ではまたAutoHotKeyによるマクロで  </p>
+<p>複数のキーを同時に押す場合はWindowsキーをControlキーに置き換えするようにしています。<br><a href="https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L17-L75">https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L17-L75</a><br>全てのアルファベットキーを置き換えしなかったのもWindowsキー + Rなどの便利なショートカットもあるので対応していなく、比較的よく使うものだけを対応しています。<br>対応できていないものとして  </p>
+<p>キーを3つ使うようなの（Control + Shift + Fなど） ができていないので残課題です。  </p>
+<h4 id="クリップボードの共通化">クリップボードの共通化</h4>
+<p>macOSでは Clipy 使ってます<br><a href="https://github.com/Clipy/Clipy"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-66cf448b5c053a04003e6725c540cbf8cbfa4ff3dbb67b93e7a034236fb7403b.png" alt="Clipy／Clipy"></a>
+<a href="https://github.com/Clipy/Clipy">github.com</a></p>
+<p>キーボードの配列の話でもありましたがCaps LookをControlとしておいている都合上、左手小指で一番下らへんを2回タップするとクリップボードを開く設定にしてます。    </p>
+<p>この操作のスカカって感じ結構好きです。  </p>
+<p>Enterをターンするようなものだと思ってください。  </p>
+<p>この点に関してはMacBookのキーボード US / 日本語配列関係なく共通です。<br><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/2-img-tag.png" alt="f:id:igara1119:20201204003326p:plain" title="" class="hatena-fotolife" itemprop="image"></p>
+<p>WindowsではWindows 10からWindowsキー + V 押すことでクリップボード開けるようになりましたが  </p>
+<p>ショートカットキーの共通化により貼り付けのショートカットキーに上書きされて、  </p>
+<p>代わりに Clibor によるクリップボードを使うようにしています。<br><a href="https://chigusa-web.com/clibor/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-318c490fe55255872a0cc5603a07bc529850243e0177f05f80f22746fb7f0f73.png" alt="Cliborの使い方 | 千草ウェブ"></a>
+<a href="https://chigusa-web.com/clibor/">chigusa-web.com</a></p>
+<p>こちらもmacOSと同様にControlを2回押すことでクリップボードを表示する設定にすれば同じように使用することが可能になります。<br><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/3-img-tag.png" alt="f:id:igara1119:20201204004457p:plain" title="" class="hatena-fotolife" itemprop="image"></p>
+<p>辞書のような定型文登録ができて純粋に優れているから Clibor 使っているというのもあります。  </p>
+<h3 id="さいごに">さいごに</h3>
+<p>だいぶこの対応で環境の違いによる違和感を消化することができました。  </p>
+<p>誰かが同じような問題を抱えてて、この記事を元により効率を上げることに繋がればといいなぁと思います。<br>以上でこの記事は終わりになります。<br>過去にも弊社のアドベントカレンダーでキーボードの話題がありますので  </p>
+<p>宣伝になっちゃうんですけどこちらも見ていただけますと書いた人が喜ぶんじゃないかなぁと思います。<br><a href="https://qiita.com/advent-calendar/2016/lancers">ランサーズ Advent Calendar 2016 - Qiita</a><br><a href="https://engineer.blog.lancers.jp/2016/12/%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%8B%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E8%AA%BF%E3%81%B9%E3%81%A6%E3%81%BF%E3%81%9F/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-21b648119add889edeef37f79be0fd7a7a06f25e2ecfe6b7dd0ab36f7ec12e3e.png" alt="みんなの使ってるキーボード調べてみた | ランサーズ（Lancers）エンジニアブログ"></a>
+<a href="https://engineer.blog.lancers.jp/2016/12/%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%8B%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E8%AA%BF%E3%81%B9%E3%81%A6%E3%81%BF%E3%81%9F/">engineer.blog.lancers.jp</a></p>
+<p><a href="https://qiita.com/advent-calendar/2018/lancers">Lancers（ランサーズ） Advent Calendar 2018 - Qiita</a><br><a href="https://engineer.blog.lancers.jp/2018/12/lancerskeyboard/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-38d3f82c664bc0d5caf01692fba800871409d800ec9005104b2f84b8868d0b92.png" alt="ランサーズエンジニアのキーボードの世界 | ランサーズ（Lancers）エンジニアブログ"></a>
+<a href="https://engineer.blog.lancers.jp/2018/12/lancerskeyboard/">engineer.blog.lancers.jp</a></p>
+<p>次回 6日目 まみーさん による 「MySQLの話を何か」です。  </p>
+<p>引き続きよろしくお願いします。  </p>
+
+</div>

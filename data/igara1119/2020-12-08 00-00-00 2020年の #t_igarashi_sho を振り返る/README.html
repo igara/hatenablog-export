@@ -1,0 +1,1219 @@
+<style>
+/*
+
+Railscasts-like style (c) Visoft, Inc. (Damien White)
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #232323;
+  color: #e6e1dc;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #bc9458;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #c26230;
+}
+
+.hljs-string,
+.hljs-number,
+.hljs-regexp,
+.hljs-variable,
+.hljs-template-variable {
+  color: #a5c261;
+}
+
+.hljs-subst {
+  color: #519f50;
+}
+
+.hljs-tag,
+.hljs-name {
+  color: #e8bf6a;
+}
+
+.hljs-type {
+  color: #da4939;
+}
+
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-attr,
+.hljs-link {
+  color: #6d9cbe;
+}
+
+.hljs-params {
+  color: #d0d0ff;
+}
+
+.hljs-attribute {
+  color: #cda869;
+}
+
+.hljs-meta {
+  color: #9b859d;
+}
+
+.hljs-title,
+.hljs-section {
+  color: #ffc66d;
+}
+
+.hljs-addition {
+  background-color: #144212;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #600;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-selector-class {
+  color: #9b703f;
+}
+
+.hljs-selector-id {
+  color: #8b98ab;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+.markdown-body .octicon {
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
+}
+
+.markdown-body .anchor {
+  float: left;
+  line-height: 1;
+  margin-left: -20px;
+  padding-right: 4px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #1b1f23;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1:hover .anchor .octicon-link:before,
+.markdown-body h2:hover .anchor .octicon-link:before,
+.markdown-body h3:hover .anchor .octicon-link:before,
+.markdown-body h4:hover .anchor .octicon-link:before,
+.markdown-body h5:hover .anchor .octicon-link:before,
+.markdown-body h6:hover .anchor .octicon-link:before {
+  width: 16px;
+  height: 16px;
+  content: ' ';
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' version='1.1' width='16' height='16' aria-hidden='true'%3E%3Cpath fill-rule='evenodd' d='M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z'%3E%3C/path%3E%3C/svg%3E");
+}.markdown-body {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.5;
+  color: #24292e;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.markdown-body details {
+  display: block;
+}
+
+.markdown-body summary {
+  display: list-item;
+}
+
+.markdown-body a {
+  background-color: initial;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline-width: 0;
+}
+
+.markdown-body strong {
+  font-weight: inherit;
+  font-weight: bolder;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.markdown-body img {
+  border-style: none;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.markdown-body hr {
+  box-sizing: initial;
+  height: 0;
+  overflow: visible;
+}
+
+.markdown-body input {
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body input {
+  overflow: visible;
+}
+
+.markdown-body [type=checkbox] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body * {
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.markdown-body a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+.markdown-body a:hover {
+  text-decoration: underline;
+}
+
+.markdown-body strong {
+  font-weight: 600;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfe2e5;
+}
+
+.markdown-body hr:after,
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body details summary {
+  cursor: pointer;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body h1 {
+  font-size: 32px;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  font-weight: 600;
+}
+
+.markdown-body h2 {
+  font-size: 24px;
+}
+
+.markdown-body h3 {
+  font-size: 20px;
+}
+
+.markdown-body h3,
+.markdown-body h4 {
+  font-weight: 600;
+}
+
+.markdown-body h4 {
+  font-size: 16px;
+}
+
+.markdown-body h5 {
+  font-size: 14px;
+}
+
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 600;
+}
+
+.markdown-body h6 {
+  font-size: 12px;
+}
+
+.markdown-body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ol ol ol,
+.markdown-body ol ul ol,
+.markdown-body ul ol ol,
+.markdown-body ul ul ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body input::-webkit-inner-spin-button,
+.markdown-body input::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.markdown-body :checked+.radio-label {
+  position: relative;
+  z-index: 1;
+  border-color: #0366d6;
+}
+
+.markdown-body .border {
+  border: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .border-0 {
+  border: 0!important;
+}
+
+.markdown-body .border-bottom {
+  border-bottom: 1px solid #e1e4e8!important;
+}
+
+.markdown-body .rounded-1 {
+  border-radius: 3px!important;
+}
+
+.markdown-body .bg-white {
+  background-color: #fff!important;
+}
+
+.markdown-body .bg-gray-light {
+  background-color: #fafbfc!important;
+}
+
+.markdown-body .text-gray-light {
+  color: #6a737d!important;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3,
+.markdown-body .px-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .px-3 {
+  padding-right: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .f6 {
+  font-size: 12px!important;
+}
+
+.markdown-body .lh-condensed {
+  line-height: 1.25!important;
+}
+
+.markdown-body .text-bold {
+  font-weight: 600!important;
+}
+
+.markdown-body .pl-c {
+  color: #6a737d;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #005cc5;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #6f42c1;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #24292e;
+}
+
+.markdown-body .pl-ent {
+  color: #22863a;
+}
+
+.markdown-body .pl-k {
+  color: #d73a49;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #032f62;
+}
+
+.markdown-body .pl-smw,
+.markdown-body .pl-v {
+  color: #e36209;
+}
+
+.markdown-body .pl-bu {
+  color: #b31d28;
+}
+
+.markdown-body .pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
+}
+
+.markdown-body .pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
+}
+
+.markdown-body .pl-c2:before {
+  content: "^M";
+}
+
+.markdown-body .pl-sr .pl-cce {
+  font-weight: 700;
+  color: #22863a;
+}
+
+.markdown-body .pl-ml {
+  color: #735c0f;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  font-weight: 700;
+  color: #005cc5;
+}
+
+.markdown-body .pl-mi {
+  font-style: italic;
+  color: #24292e;
+}
+
+.markdown-body .pl-mb {
+  font-weight: 700;
+  color: #24292e;
+}
+
+.markdown-body .pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.markdown-body .pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.markdown-body .pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
+}
+
+.markdown-body .pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
+}
+
+.markdown-body .pl-mdr {
+  font-weight: 700;
+  color: #6f42c1;
+}
+
+.markdown-body .pl-ba {
+  color: #586069;
+}
+
+.markdown-body .pl-sg {
+  color: #959da5;
+}
+
+.markdown-body .pl-corl {
+  text-decoration: underline;
+  color: #032f62;
+}
+
+.markdown-body .mb-0 {
+  margin-bottom: 0!important;
+}
+
+.markdown-body .my-2 {
+  margin-bottom: 8px!important;
+}
+
+.markdown-body .my-2 {
+  margin-top: 8px!important;
+}
+
+.markdown-body .pl-0 {
+  padding-left: 0!important;
+}
+
+.markdown-body .py-0 {
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}
+
+.markdown-body .pl-1 {
+  padding-left: 4px!important;
+}
+
+.markdown-body .pl-2 {
+  padding-left: 8px!important;
+}
+
+.markdown-body .py-2 {
+  padding-top: 8px!important;
+  padding-bottom: 8px!important;
+}
+
+.markdown-body .pl-3 {
+  padding-left: 16px!important;
+}
+
+.markdown-body .pl-4 {
+  padding-left: 24px!important;
+}
+
+.markdown-body .pl-5 {
+  padding-left: 32px!important;
+}
+
+.markdown-body .pl-6 {
+  padding-left: 40px!important;
+}
+
+.markdown-body .pl-7 {
+  padding-left: 48px!important;
+}
+
+.markdown-body .pl-8 {
+  padding-left: 64px!important;
+}
+
+.markdown-body .pl-9 {
+  padding-left: 80px!important;
+}
+
+.markdown-body .pl-10 {
+  padding-left: 96px!important;
+}
+
+.markdown-body .pl-11 {
+  padding-left: 112px!important;
+}
+
+.markdown-body .pl-12 {
+  padding-left: 128px!important;
+}
+
+.markdown-body hr {
+  border-bottom-color: #eee;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  line-height: 10px;
+  color: #444d56;
+  vertical-align: middle;
+  background-color: #fafbfc;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #d1d5da;
+}
+
+.markdown-body:after,
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  clear: both;
+}
+
+.markdown-body>:first-child {
+  margin-top: 0!important;
+}
+
+.markdown-body>:last-child {
+  margin-bottom: 0!important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body blockquote,
+.markdown-body details,
+.markdown-body dl,
+.markdown-body ol,
+.markdown-body p,
+.markdown-body pre,
+.markdown-body table,
+.markdown-body ul {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: .25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #e1e4e8;
+  border: 0;
+}
+
+.markdown-body blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  padding-bottom: .3em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.markdown-body h2 {
+  font-size: 1.5em;
+}
+
+.markdown-body h3 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 {
+  font-size: 1em;
+}
+
+.markdown-body h5 {
+  font-size: .875em;
+}
+
+.markdown-body h6 {
+  font-size: .85em;
+  color: #6a737d;
+}
+
+.markdown-body ol,
+.markdown-body ul {
+  padding-left: 2em;
+}
+
+.markdown-body ol ol,
+.markdown-body ol ul,
+.markdown-body ul ol,
+.markdown-body ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li {
+  word-wrap: break-all;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body li+li {
+  margin-top: .25em;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+}
+
+.markdown-body table th {
+  font-weight: 600;
+}
+
+.markdown-body table td,
+.markdown-body table th {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: initial;
+  background-color: #fff;
+}
+
+.markdown-body img[align=right] {
+  padding-left: 20px;
+}
+
+.markdown-body img[align=left] {
+  padding-right: 20px;
+}
+
+.markdown-body code {
+  padding: .2em .4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,.05);
+  border-radius: 3px;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+}
+
+.markdown-body .commit-tease-sha {
+  display: inline-block;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 90%;
+  color: #444d56;
+}
+
+.markdown-body .full-commit .btn-outline:not(:disabled):hover {
+  color: #005cc5;
+  border-color: #005cc5;
+}
+
+.markdown-body .blob-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.markdown-body .blob-wrapper-embedded {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.markdown-body .blob-num {
+  width: 1%;
+  min-width: 50px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  line-height: 20px;
+  color: rgba(27,31,35,.3);
+  text-align: right;
+  white-space: nowrap;
+  vertical-align: top;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .blob-num:hover {
+  color: rgba(27,31,35,.6);
+}
+
+.markdown-body .blob-num:before {
+  content: attr(data-line-number);
+}
+
+.markdown-body .blob-code {
+  position: relative;
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 20px;
+  vertical-align: top;
+}
+
+.markdown-body .blob-code-inner {
+  overflow: visible;
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font-size: 12px;
+  color: #24292e;
+  word-wrap: normal;
+  white-space: pre;
+}
+
+.markdown-body .pl-token.active,
+.markdown-body .pl-token:hover {
+  cursor: pointer;
+  background: #ffea7f;
+}
+
+.markdown-body .tab-size[data-tab-size="1"] {
+  -moz-tab-size: 1;
+  tab-size: 1;
+}
+
+.markdown-body .tab-size[data-tab-size="2"] {
+  -moz-tab-size: 2;
+  tab-size: 2;
+}
+
+.markdown-body .tab-size[data-tab-size="3"] {
+  -moz-tab-size: 3;
+  tab-size: 3;
+}
+
+.markdown-body .tab-size[data-tab-size="4"] {
+  -moz-tab-size: 4;
+  tab-size: 4;
+}
+
+.markdown-body .tab-size[data-tab-size="5"] {
+  -moz-tab-size: 5;
+  tab-size: 5;
+}
+
+.markdown-body .tab-size[data-tab-size="6"] {
+  -moz-tab-size: 6;
+  tab-size: 6;
+}
+
+.markdown-body .tab-size[data-tab-size="7"] {
+  -moz-tab-size: 7;
+  tab-size: 7;
+}
+
+.markdown-body .tab-size[data-tab-size="8"] {
+  -moz-tab-size: 8;
+  tab-size: 8;
+}
+
+.markdown-body .tab-size[data-tab-size="9"] {
+  -moz-tab-size: 9;
+  tab-size: 9;
+}
+
+.markdown-body .tab-size[data-tab-size="10"] {
+  -moz-tab-size: 10;
+  tab-size: 10;
+}
+
+.markdown-body .tab-size[data-tab-size="11"] {
+  -moz-tab-size: 11;
+  tab-size: 11;
+}
+
+.markdown-body .tab-size[data-tab-size="12"] {
+  -moz-tab-size: 12;
+  tab-size: 12;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 .2em .25em -1.6em;
+  vertical-align: middle;
+}
+
+</style><div class="markdown-body">
+  <p>この記事は <a href="https://qiita.com/advent-calendar/2020/lancers">Lancers（ランサーズ） Advent Calendar 2020</a>の9日目の記事になります。<br><a href="https://qiita.com/advent-calendar/2020/lancers"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-08 00-00-00 2020年の #t_igarashi_sho を振り返る/iframe-5c7f1fc6a836f63edb4ce4712fa4829bb1812c4aa77216cc71b397f61cbd4db5.png" alt="                                                                                                                                                        Lancers（ランサーズ） Advent Calendar 2020 - Qiita"></a>
+<a href="https://qiita.com/advent-calendar/2020/lancers">qiita.com</a></p>
+<ul>
+<li><a href="#%E3%81%BE%E3%81%88%E3%81%8C%E3%81%8D">まえがき</a></li>
+<li><a href="#%E3%83%94%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%97%E3%81%9F%E3%82%82%E3%81%AE">ピックアップしたもの</a>  - <a href="#%E3%83%81%E3%83%A3%E3%82%BF%E3%82%8B">チャタる</a><ul>
+<li><a href="#Slack%E3%81%AE%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E3%82%92%E8%87%AA%E5%88%86%E3%81%AE%E9%A1%94%E3%81%AB%E3%81%97%E3%81%9F">Slackのアイコンを自分の顔にした</a></li>
+<li><a href="#%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%83%89%E3%82%B7%E3%83%BC%E3%83%88%E3%82%92%E3%82%B9%E3%83%97%E3%82%B7%E8%A8%80%E3%81%86%E3%81%8B%E3%82%B9%E3%83%97%E3%83%AC%E3%81%A8%E8%A8%80%E3%81%86%E3%81%8B">スプレッドシートをスプシ言うかスプレと言うか</a></li>
+<li><a href="#Way%E3%81%99%E3%82%8B%E5%8B%95%E8%A9%9E">Wayする【動詞】</a></li>
+<li><a href="#%E3%83%86%E3%82%B9%E3%83%88%E7%92%B0%E5%A2%83%E3%81%A7%E4%BD%BF%E3%81%88%E3%82%8B%E3%82%AF%E3%83%AC%E3%82%B8%E3%83%83%E3%83%88%E3%82%AB%E3%83%BC%E3%83%89%E7%95%AA%E5%8F%B7">テスト環境で使えるクレジットカード番号</a></li>
+<li><a href="#VSCode%E7%B3%BB">VSCode系</a>    - <a href="#CakePHP%E3%81%AE%E3%83%86%E3%83%B3%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E3%81%A8jQuery%E3%81%A8%E3%82%A4%E3%83%B3%E3%83%86%E3%83%AA%E3%82%BB%E3%83%B3%E3%82%B9">CakePHPのテンプレートとjQueryとインテリセンス</a><ul>
+<li><a href="#Save-and-Run-%E3%81%A7%E8%87%AA%E5%8B%95%E3%81%A7%E3%83%86%E3%82%B9%E3%83%88%E3%81%A8%E6%95%B4%E5%BD%A2%E3%81%99%E3%82%8B%E3%82%88%E3%81%86%E3%81%AB%E3%81%99%E3%82%8B">Save and Run で自動でテストと整形するようにする</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="#%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AEClipy%E3%82%92%E6%99%92%E3%81%99%E4%BC%9A">みんなのClipyを晒す会</a>    - <a href="#GitHub%E3%81%AE%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E3%82%92%E3%82%B9%E3%83%8B%E3%83%9A%E3%83%83%E3%83%88%E5%8C%96">GitHubのコメントをスニペット化</a><ul>
+<li><a href="#%E6%A5%AD%E5%8B%99%E5%8A%B9%E7%8E%87%E7%B3%BB%E3%81%AE%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%82%92%E3%82%B9%E3%83%8B%E3%83%9A%E3%83%83%E3%83%88%E5%8C%96">業務効率系のスクリプトをスニペット化</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="#SlackBot%E9%96%8B%E7%99%BA">SlackBot開発</a>    - <a href="#Bot%E3%81%8C%E3%83%81%E3%83%A3%E3%83%B3%E3%83%8D%E3%83%AB%E3%82%92%E3%83%8F%E3%82%B7%E3%82%B4%E3%81%97%E3%81%A6%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88%E6%8A%95%E7%A8%BF%E3%81%99%E3%82%8B%E6%A9%9F%E8%83%BD">Botがチャンネルをハシゴしてコメント投稿する機能</a></li>
+</ul>
+<ul>
+<li><a href="#CakePHP%E3%81%AE%E3%83%A6%E3%83%8B%E3%83%83%E3%83%88%E3%83%86%E3%82%B9%E3%83%88%E3%81%AEFixture%E3%81%AE%E5%AE%9A%E7%BE%A9%E8%AD%B0%E8%AB%96">CakePHPのユニットテストのFixtureの定義議論</a></li>
+<li><a href="#%E3%83%AA%E3%82%B0%E3%83%AC%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%83%84%E3%83%BC%E3%83%AB%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F%E3%81%84">リグレッションツール導入したい</a></li>
+<li><a href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E6%89%8B%E5%BD%93%E3%81%A6%E3%81%AE%E3%82%88%E3%81%86%E3%81%AA%E3%82%82%E3%81%AE%E5%8F%96%E3%82%8A%E5%85%A5%E3%82%8C%E3%81%9F%E3%81%84">リモート手当てのようなもの取り入れたい</a></li>
+<li><a href="#%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E7%9A%84%E3%81%AA%E3%82%A2%E3%83%83%E3%83%97%E3%83%87%E3%83%BC%E3%83%88%E6%A4%9C%E7%9F%A5%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%82%E3%81%AE%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F%E3%81%84">ライブラリのセキュリティ的なアップデート検知できるものを導入したい</a></li>
+</ul>
+<ul>
+<li><a href="#%E3%81%95%E3%81%84%E3%81%94%E3%81%AB">さいごに</a><h3 id="まえがき">まえがき</h3>
+</li>
+</ul>
+<p>入社して3ヶ月になりました。五十嵐です。<br>この記事は、Slackにある自身の分報チャンネルを振り返ってみてどんなことあったのかとかやりたいこと、共通の話題にできそうなものをピックアップしてみる記事です。<br>世間的にフルリモート推奨される事態になり、雑談をすることが減ったこともあって、今年は雑談として分報を活用することが多かったなと思います。  </p>
+<p>業務のわからないとこなどを雑にプッシュすることもありますが、雑談と業務の話の割合は1対1ぐらいなんじゃないかなと思います。
+あと分報以外では、時間をあわして対応したいときなどには Slack Call などのテレビ電話で会話ベースで作業を進めることもあります。<br>下記にピックアップしたものを記載しますが、多くなると思いますのでメモ書きベースな感じで書いていきたいと思います。<br><strong>どんな気持ちでこの記事を見れば良いのかというとリモート作業でも弊社はこんな雰囲気なんだという感じにみていただければ良いかなと思います。</strong>  </p>
+<h3 id="ピックアップしたもの">ピックアップしたもの</h3>
+<h4 id="チャタる">チャタる</h4>
+<p>MacBook支給されてキーボードの操作で不具合がなさそうだったので  </p>
+<p>「今回のMacBook Pro今のところチャタらないので多分あたり枠(13-inch, 2019」  </p>
+<p>と言ったときにチャタるとは？となった話です。  </p>
+<p>正しくはチャタリングのことで、MacBookのキーボード不具合について公式で修理を受け付けてますというページが去年ぐらいに出てたというのもあってなんとなく分報に流しました。<br><a href="https://support.apple.com/ja-jp/keyboard-service-program-for-mac-notebooks"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-08 00-00-00 2020年の #t_igarashi_sho を振り返る/iframe-e57b6f9ab7f99251f173780a3628c9f1c8456df0323c6bc1bcdf5a79dc86598c.png" alt="MacBook、MacBook Air、MacBook Pro キーボード修理プログラム - Apple サポート"></a>
+<a href="https://support.apple.com/ja-jp/keyboard-service-program-for-mac-notebooks">support.apple.com</a></p>
+<h4 id="slackのアイコンを自分の顔にした">Slackのアイコンを自分の顔にした</h4>
+<p>顔をあわすことが少ないと思うので入社手続きで出社したときに撮った写真を顔だけ切り抜きしてアイコン化しました。<br>後にSlackの絵文字化もして、メンションされて個人のアピールしたいときにリアクションするために使うようになります。<br><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-08 00-00-00 2020年の #t_igarashi_sho を振り返る/0-img-tag.gif" alt="f:id:igara1119:20201208002821g:plain" title="" class="hatena-fotolife" itemprop="image"></p>
+<p>この際に作成した動く画像をGoogleアカウントのプロフィール画像にも登録したらカレンダーやスプレッドシート上でも動く顔が表示されるようになりました。  </p>
+<h4 id="スプレッドシートをスプシ言うかスプレと言うか">スプレッドシートをスプシ言うかスプレと言うか</h4>
+<p>弊社ではスプシ派が多そうです。  </p>
+<p>僕はスプレ派でこれからもスプレと言い通すのでしょう。  </p>
+<h4 id="wayする【動詞】">Wayする【動詞】</h4>
+<p>入社したときの資料の名前を見てやたら〜Wayと書いてあったので  </p>
+<p>「Wayする【動詞】 という語録が存在しそう」  </p>
+<p>と、ふと分報に記載したものです。<br>弊社限定かもしれませんがツールの使い方や社内規定のようなものをWayをつけてドキュメント化するようになっているようです。  </p>
+<p>例えばSlackの使い方が記載されているSlack Wayとかあります。  </p>
+<p>Wayと言うワードで共通認識化しようとする考え方は良いと思いました。<br>仕組みとしてないものやよしなに力（りょく）で対応しちゃっているタスクもまだあったりするのでWay化していくことが大事だなぁと思ってます。  </p>
+<h4 id="テスト環境で使えるクレジットカード番号">テスト環境で使えるクレジットカード番号</h4>
+<p>支払いどうしたらいいのか聞いた時に教えていただいた記事です。  </p>
+<p>今でも結構見ます。<br><a href="https://qiita.com/mimoe/items/8f5d9ce46b72b7fecff5"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-08 00-00-00 2020年の #t_igarashi_sho を振り返る/iframe-5ede3821b02f9f9c489108c876ce68d5fdadff3f97ca02281fb5b7152fa7ccc3.png" alt="テスト環境で使えるクレジットカード番号 - Qiita"></a>
+<a href="https://qiita.com/mimoe/items/8f5d9ce46b72b7fecff5">qiita.com</a></p>
+<h4 id="vscode系">VSCode系</h4>
+<h5 id="cakephpのテンプレートとjqueryとインテリセンス">CakePHPのテンプレートとjQueryとインテリセンス</h5>
+<p>PHP Intelephense (bmewburn.vscode-intelephense-client) 入れたらCakePHPのテンプレートでもjQueryの補完利くようになってこの拡張すごくない？と言う話をしました。<br><a href="https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-08 00-00-00 2020年の #t_igarashi_sho を振り返る/iframe-e37e877682c1c217fee3735c430b950590729efe0a888d26e3aff197a42b136f.png" alt="PHP Intelephense - Visual Studio Marketplace"></a>
+<a href="https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client">marketplace.visualstudio.com</a></p>
+<h5 id="save-and-run-で自動でテストと整形するようにする">Save and Run で自動でテストと整形するようにする</h5>
+<p>今だとXdebugと併用してDockerコンテナ内のユニットテストをデバッグしながら実行可能な状態になっているので、サンプル用のPHPプロジェクトを作成して記事化したいなぁと思っています。すごい便利です。<br><a href="https://marketplace.visualstudio.com/items?itemName=wk-j.save-and-run"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-08 00-00-00 2020年の #t_igarashi_sho を振り返る/iframe-6f0ebf7a4189903fb1b94644b3c4a948842b0963885c15ba5af7ca25d6a89975.png" alt="Save and Run - Visual Studio Marketplace"></a>
+<a href="https://marketplace.visualstudio.com/items?itemName=wk-j.save-and-run">marketplace.visualstudio.com</a></p>
+<h4 id="みんなのclipyを晒す会">みんなのClipyを晒す会</h4>
+<h5 id="githubのコメントをスニペット化">GitHubのコメントをスニペット化</h5>
+<p>approveする時や本番確認した時にPR対してのコメントをする機会があります。  </p>
+<p>定型文をクリップボードやどこからか引用して貼り付けるような仕組みを各々持ってたりしますよねと言うあるある話がありました。  </p>
+<h5 id="業務効率系のスクリプトをスニペット化">業務効率系のスクリプトをスニペット化</h5>
+<p>晒していただいた方の例で  </p>
+<ul>
+<li>実行するビルドコマンド
+コンテナ内にアプリケーション毎の異なるフロントエンドのソースがあるのでパス情報を含めたワンラインで実行できるようなビルドコマンドなど</li>
+<li>システムフロー上で必要なデータを作成するためのSQL
+複数のテーブルに対してデータを作るようなもの
+画面操作で10分くらい時間かけていたものを10秒で終わらせるようになったとか
+各々の努力を感じました。  <h4 id="slackbot開発">SlackBot開発</h4>
+</li>
+</ul>
+<p>業務外で対応していました。  </p>
+<h5 id="botがチャンネルをハシゴしてコメント投稿する機能">Botがチャンネルをハシゴしてコメント投稿する機能</h5>
+<pre><code>@igarashi-bot <span class="hljs-keyword">say</span> channel=<span class="hljs-comment">#hoge_channel comment=リモート開始します。36.5</span></code></pre><p>とコメントすれば対象のチャンネルにも投稿される仕組みを自分の分報チャンネルに入れてみました。<br>Slack経由でジョブカンに打刻する仕組みがあるのですがそれプラス、勤怠連絡する用のチャンネルがあるのでどっちも忘れないようにするために  </p>
+<pre><code>/jobcan_touch @igarashi-bot say <span class="hljs-attribute">channel</span>=#hoge_channel <span class="hljs-attribute">comment</span>=リモート開始します。36.5</code></pre><p>とコメントすれば同時に対応するようにしました。  </p>
+<p>このコメントはClipyに保存しています。<br>GASで作成しているのでどのぐらい利用枠でいけるのか謎なのでまだ個人のみでしか使用していないですが、安定してそうならこれも記事にしたいです。  </p>
+<h4 id="cakephpのユニットテストのfixtureの定義議論">CakePHPのユニットテストのFixtureの定義議論</h4>
+<p>Fixture側のfield定義とModelの定義がずれていたものがあり、Fixtureに手を入れなくても済むようにできないかと話し、Fixture側も更新しようという結論になりました。  </p>
+<p>（Fixtureの定義自体がテスト用に使用したいものの定義として別出ししているものなので）  </p>
+<p>将来的にはCakePHPにあるbakeでうまいことできないか検討しようという会話ができました。<br>本番反映するためのDDLなど別ファイルで保存してたりするのでユニットテスト環境でも併用できるようなスキーマ反映するものがあったら良さそうとも思いました。  </p>
+<p>（該当するのがridgepoleなんだよなぁと思いつつ...）<br>いろいろベストに近いものをこれからも考えていきたいと思います。  </p>
+<h4 id="リグレッションツール導入したい">リグレッションツール導入したい</h4>
+<p>様々なフロントエンドのソースがあったりするのでちょっとしたCSSの変更があったときにも差分表示できるものを導入しようか検討しています。ツールとして BackstopJS のようなものを使用して画面検証しようかと考えております。<br><a href="https://github.com/garris/BackstopJS"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-08 00-00-00 2020年の #t_igarashi_sho を振り返る/iframe-d1457487a29331529673c634a4d53722de78166cc83c2544bc5a838e3d1d2e63.png" alt="garris／BackstopJS"></a>
+<a href="https://github.com/garris/BackstopJS">github.com</a></p>
+<p>ツールのサンプルをGitHubに管理していますがどう運用まわすかが課題になっていて  </p>
+<ul>
+<li>誰がテスト対象の画面を追加していくか</li>
+<li>ページ上のイベントを実行した検証を追加するか</li>
+<li>CI上でWebサーバとHeadless Chrome起動できるような構成がないと検証できない</li>
+<li>CI運用した際に差分表示したファイルをどう設置して見えるようにするか
+などなど  <h4 id="リモート手当てのようなもの取り入れたい">リモート手当てのようなもの取り入れたい</h4>
+</li>
+</ul>
+<p>家で作業することが多くなったことにより光熱費がかかるようになった反面、飲食代かからなくなったという今までになかった生活面の話があったりしました。<br>月一にビデオ通話による全体会があるのですがそのときにも、リモート作業に対しての手当てを出そうという話が展開されており、iPadの貸し出しなどされるようになったというのがあります。  </p>
+<h4 id="ライブラリのセキュリティ的なアップデート検知できるものを導入したい">ライブラリのセキュリティ的なアップデート検知できるものを導入したい</h4>
+<p>今のところ Dependabot を検討予定で考えており、複数あるフロントエンドのプロジェクトや既存のPHPライブラリに対して更新するべきタイミングを検知できればと思います。<br>まだ業務とは関係のない個人のプロジェクトで入れて検証したぐらいなので、次回の定例で入れるか会話をした上で実施しようかと思っているところです。<br><a href="https://dependabot.com/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2020-12-08 00-00-00 2020年の #t_igarashi_sho を振り返る/iframe-50c13b7188a6eb4a085739739942b8a55b0eca3fad52a5ca170bd35222a38bec.png" alt="Dependabot"></a>
+<a href="https://dependabot.com/">dependabot.com</a></p>
+<h3 id="さいごに">さいごに</h3>
+<p>分報で言ってたことをただ箇条書きにしたような記事ですみませんでした。  </p>
+<p>改めて振り返ってみるとちょっとした雑談のものが課題点だったり、  </p>
+<p>分報の発言から個人としてできる会社に貢献できそうなミッションを出すきっかけにもなっているので今後も引き続き分報を続けていきたいと思います。<br>以上でこの記事は終わりになります。<br>次回 10日目 金澤さんのランサーズのリモートワーク化の歴史です。  </p>
+<p>引き続きよろしくお願いします。  </p>
+
+</div>
