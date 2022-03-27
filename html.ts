@@ -21,11 +21,18 @@ const exec = () => {
       if (/^\./.test(blogItemDirectoryName)) return;
 
       const markdown = fs.readFileSync(`data/${blogDirectoryName}/${blogItemDirectoryName}/README.md`).toString();
+      const renderer = new marked.Renderer();
+      renderer.link = (href, _, text) => {
+        if (/^#/.test(href)) return `<a href="${href}">${text}</a>`;
+        return `<a target="_blank" rel="noopener noreferrer" href="${href}">${text}</a>`;
+      };
+
       let body = marked(markdown, {
         gfm: true,
         highlight: (code) => {
           return highlight.highlightAuto(code).value;
         },
+        renderer,
       });
       body = body.replace(
         /src="/g,

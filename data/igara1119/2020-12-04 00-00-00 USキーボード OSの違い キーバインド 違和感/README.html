@@ -1093,28 +1093,28 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 }
 
 </style><div class="markdown-body">
-  <p>この記事は <a href="https://qiita.com/advent-calendar/2020/lancers">Lancers（ランサーズ） Advent Calendar 2020</a>の5日目の記事になります。<br><a href="https://qiita.com/advent-calendar/2020/lancers"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+  <p>この記事は <a target="_blank" rel="noopener noreferrer" href="https://qiita.com/advent-calendar/2020/lancers">Lancers（ランサーズ） Advent Calendar 2020</a>の5日目の記事になります。<br><a target="_blank" rel="noopener noreferrer" href="https://qiita.com/advent-calendar/2020/lancers"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-5c7f1fc6a836f63edb4ce4712fa4829bb1812c4aa77216cc71b397f61cbd4db5.png" alt="                                                                                                                                                        Lancers（ランサーズ） Advent Calendar 2020 - Qiita"></a>
-<a href="https://qiita.com/advent-calendar/2020/lancers">qiita.com</a></p>
+<a target="_blank" rel="noopener noreferrer" href="https://qiita.com/advent-calendar/2020/lancers">qiita.com</a></p>
 <ul>
-<li><a href="#%E3%81%BE%E3%81%88%E3%81%8C%E3%81%8D">まえがき</a></li>
-<li><a href="#%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AD%98-%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E9%85%8D%E5%88%97">前提知識: 使用しているキーボードの配列</a></li>
-<li><a href="#%E3%81%BB%E3%82%93%E3%81%A0%E3%81%84">ほんだい</a>  - <a href="#%E5%85%88%E3%81%AB%E6%B3%A8%E6%84%8F">先に注意</a><ul>
-<li><a href="#%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%85%A5%E5%8A%9B%E5%88%87%E3%82%8A%E6%9B%BF%E3%81%88%E3%81%AE%E5%85%B1%E9%80%9A%E5%8C%96">日本語入力切り替えの共通化</a></li>
-<li><a href="#%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%81%AE%E5%85%B1%E9%80%9A%E5%8C%96">ショートカットキーの共通化</a></li>
-<li><a href="#%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%83%9C%E3%83%BC%E3%83%89%E3%81%AE%E5%85%B1%E9%80%9A%E5%8C%96">クリップボードの共通化</a></li>
+<li><a href="#まえがき">まえがき</a></li>
+<li><a href="#前提知識-使用しているキーボードの配列">前提知識: 使用しているキーボードの配列</a></li>
+<li><a href="#ほんだい">ほんだい</a>  - <a href="#先に注意">先に注意</a><ul>
+<li><a href="#日本語入力切り替えの共通化">日本語入力切り替えの共通化</a></li>
+<li><a href="#ショートカットキーの共通化">ショートカットキーの共通化</a></li>
+<li><a href="#クリップボードの共通化">クリップボードの共通化</a></li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><a href="#%E3%81%95%E3%81%84%E3%81%94%E3%81%AB">さいごに</a><h3 id="まえがき">まえがき</h3>
+<li><a href="#さいごに">さいごに</a><h3 id="まえがき">まえがき</h3>
 </li>
 </ul>
 <p>システム開発している 五十嵐です。<br>この記事は、2020年弊社アドベントカレンダー キーボードについて書く枠 代表として書きたかったので書きました。  </p>
 <p>数少ないErgodox派としてのアウトプットをしたいというのもあります。  </p>
-<p>半年前、こんな記事書いててなんやかんやでこのキーボードに慣れました。<br><a href="https://igara1119.hatenablog.com/entry/2020/05/10/002501"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+<p>半年前、こんな記事書いててなんやかんやでこのキーボードに慣れました。<br><a target="_blank" rel="noopener noreferrer" href="https://igara1119.hatenablog.com/entry/2020/05/10/002501"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-392a563febb215a912ac43489279b68e6e3f527a797c5d60ffed0d429b370c41.png" alt="Ergodox EZ キーボードのカスタム - 無銘雑記"></a>
-<a href="https://igara1119.hatenablog.com/entry/2020/05/10/002501">igara1119.hatenablog.com</a></p>
+<a target="_blank" rel="noopener noreferrer" href="https://igara1119.hatenablog.com/entry/2020/05/10/002501">igara1119.hatenablog.com</a></p>
 <p>とはいえ、業務に関係ないですけど最近は個人のWindows機ともキーボード併用してて、  </p>
 <p>macOSとWindowsのOSの違いによる同じ操作感で使用できない問題点が出てきてたので  </p>
 <p>どのようにして問題解決したのかを重点的に記載できればと思います。<br>記事のタイトルにErgodox入れなかったのは、USキーボードだったら共通の話題になるのかなぁと思い、外しています。  </p>
@@ -1151,23 +1151,23 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 <p><strong>一部、チート対策や自動化作業によるマクロ対策がされているソフトウェアを起動できなくなる可能性がありますのでその際はこのマクロを停止してから実行するようにお願いします。</strong>  </p>
 <p>（実際、某オンラインゲームを起動しようとしたらAutoHotKeyが原因で起動できなかった）  </p>
 <h4 id="日本語入力切り替えの共通化">日本語入力切り替えの共通化</h4>
-<p>macOSでは ⌘英かな というアプリケーション使って左右のCommandキーで英字 / 日本語入力の切り替えを行っています。<br><a href="https://github.com/iMasanari/cmd-eikana"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+<p>macOSでは ⌘英かな というアプリケーション使って左右のCommandキーで英字 / 日本語入力の切り替えを行っています。<br><a target="_blank" rel="noopener noreferrer" href="https://github.com/iMasanari/cmd-eikana"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-776a1d330be32d1ce38a00afbe619f01238e835bfe0a3aaad9ee6474613c6c59.png" alt="iMasanari／cmd-eikana"></a>
-<a href="https://github.com/iMasanari/cmd-eikana">github.com</a></p>
-<p>前はKarabiner-Elementsで切り替えしてましたがOSアップデートのタイミングで使えなくなることが多かったので最近はこちらのアプリを使うことが多いです。<br>Windowsでは CommandキーがWindowsキー扱いされるのでAutoHotKeyというソフトウェアを使ってWIndowsキー押したら日本語入力するようなマクロを起動するようにしました。<br><a href="https://github.com/igara/ergodox-jp-autohotkey"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/iMasanari/cmd-eikana">github.com</a></p>
+<p>前はKarabiner-Elementsで切り替えしてましたがOSアップデートのタイミングで使えなくなることが多かったので最近はこちらのアプリを使うことが多いです。<br>Windowsでは CommandキーがWindowsキー扱いされるのでAutoHotKeyというソフトウェアを使ってWIndowsキー押したら日本語入力するようなマクロを起動するようにしました。<br><a target="_blank" rel="noopener noreferrer" href="https://github.com/igara/ergodox-jp-autohotkey"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-36716317032eb27caf04a5bea66cc653e3481daa2e5247deaedca27e7a768cfd.png" alt="igara／ergodox-jp-autohotkey"></a>
-<a href="https://github.com/igara/ergodox-jp-autohotkey">github.com</a></p>
-<p>マクロの内容として該当する箇所がこちらになります。<br><a href="https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L1-L15">https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L1-L15</a>  </p>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/igara/ergodox-jp-autohotkey">github.com</a></p>
+<p>マクロの内容として該当する箇所がこちらになります。<br><a target="_blank" rel="noopener noreferrer" href="https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L1-L15">https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L1-L15</a>  </p>
 <h4 id="ショートカットキーの共通化">ショートカットキーの共通化</h4>
 <p>OSの違いによるキーボードの操作の違いとしてショートカットキー（ホットキー）の違いや  </p>
 <p>macOSではCommandキーをよく使うけど  </p>
 <p>WindowsではControlキーをよく使うなどソフトウェアでの違いがあったりすると思います。<br>macOS側は特別な設定をしていないです。<br>Windows側ではまたAutoHotKeyによるマクロで  </p>
-<p>複数のキーを同時に押す場合はWindowsキーをControlキーに置き換えするようにしています。<br><a href="https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L17-L75">https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L17-L75</a><br>全てのアルファベットキーを置き換えしなかったのもWindowsキー + Rなどの便利なショートカットもあるので対応していなく、比較的よく使うものだけを対応しています。<br>対応できていないものとして  </p>
+<p>複数のキーを同時に押す場合はWindowsキーをControlキーに置き換えするようにしています。<br><a target="_blank" rel="noopener noreferrer" href="https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L17-L75">https://github.com/igara/ergodox-jp-autohotkey/blob/3a8805d2254922ea648e10b2b45f937e3e35a952/ergodox-jp-autohotkey.ahk#L17-L75</a><br>全てのアルファベットキーを置き換えしなかったのもWindowsキー + Rなどの便利なショートカットもあるので対応していなく、比較的よく使うものだけを対応しています。<br>対応できていないものとして  </p>
 <p>キーを3つ使うようなの（Control + Shift + Fなど） ができていないので残課題です。  </p>
 <h4 id="クリップボードの共通化">クリップボードの共通化</h4>
-<p>macOSでは Clipy 使ってます<br><a href="https://github.com/Clipy/Clipy"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+<p>macOSでは Clipy 使ってます<br><a target="_blank" rel="noopener noreferrer" href="https://github.com/Clipy/Clipy"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-66cf448b5c053a04003e6725c540cbf8cbfa4ff3dbb67b93e7a034236fb7403b.png" alt="Clipy／Clipy"></a>
-<a href="https://github.com/Clipy/Clipy">github.com</a></p>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/Clipy/Clipy">github.com</a></p>
 <p>キーボードの配列の話でもありましたがCaps LookをControlとしておいている都合上、左手小指で一番下らへんを2回タップするとクリップボードを開く設定にしてます。    </p>
 <p>この操作のスカカって感じ結構好きです。  </p>
 <p>Enterをターンするようなものだと思ってください。  </p>
@@ -1175,21 +1175,21 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 /master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/2-img-tag.png" alt="f:id:igara1119:20201204003326p:plain" title="" class="hatena-fotolife" itemprop="image"></p>
 <p>WindowsではWindows 10からWindowsキー + V 押すことでクリップボード開けるようになりましたが  </p>
 <p>ショートカットキーの共通化により貼り付けのショートカットキーに上書きされて、  </p>
-<p>代わりに Clibor によるクリップボードを使うようにしています。<br><a href="https://chigusa-web.com/clibor/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+<p>代わりに Clibor によるクリップボードを使うようにしています。<br><a target="_blank" rel="noopener noreferrer" href="https://chigusa-web.com/clibor/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-318c490fe55255872a0cc5603a07bc529850243e0177f05f80f22746fb7f0f73.png" alt="Cliborの使い方 | 千草ウェブ"></a>
-<a href="https://chigusa-web.com/clibor/">chigusa-web.com</a></p>
+<a target="_blank" rel="noopener noreferrer" href="https://chigusa-web.com/clibor/">chigusa-web.com</a></p>
 <p>こちらもmacOSと同様にControlを2回押すことでクリップボードを表示する設定にすれば同じように使用することが可能になります。<br><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/3-img-tag.png" alt="f:id:igara1119:20201204004457p:plain" title="" class="hatena-fotolife" itemprop="image"></p>
 <p>辞書のような定型文登録ができて純粋に優れているから Clibor 使っているというのもあります。  </p>
 <h3 id="さいごに">さいごに</h3>
 <p>だいぶこの対応で環境の違いによる違和感を消化することができました。  </p>
 <p>誰かが同じような問題を抱えてて、この記事を元により効率を上げることに繋がればといいなぁと思います。<br>以上でこの記事は終わりになります。<br>過去にも弊社のアドベントカレンダーでキーボードの話題がありますので  </p>
-<p>宣伝になっちゃうんですけどこちらも見ていただけますと書いた人が喜ぶんじゃないかなぁと思います。<br><a href="https://qiita.com/advent-calendar/2016/lancers">ランサーズ Advent Calendar 2016 - Qiita</a><br><a href="https://engineer.blog.lancers.jp/2016/12/%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%8B%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E8%AA%BF%E3%81%B9%E3%81%A6%E3%81%BF%E3%81%9F/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+<p>宣伝になっちゃうんですけどこちらも見ていただけますと書いた人が喜ぶんじゃないかなぁと思います。<br><a target="_blank" rel="noopener noreferrer" href="https://qiita.com/advent-calendar/2016/lancers">ランサーズ Advent Calendar 2016 - Qiita</a><br><a target="_blank" rel="noopener noreferrer" href="https://engineer.blog.lancers.jp/2016/12/%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%8B%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E8%AA%BF%E3%81%B9%E3%81%A6%E3%81%BF%E3%81%9F/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-21b648119add889edeef37f79be0fd7a7a06f25e2ecfe6b7dd0ab36f7ec12e3e.png" alt="みんなの使ってるキーボード調べてみた | ランサーズ（Lancers）エンジニアブログ"></a>
-<a href="https://engineer.blog.lancers.jp/2016/12/%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%8B%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E8%AA%BF%E3%81%B9%E3%81%A6%E3%81%BF%E3%81%9F/">engineer.blog.lancers.jp</a></p>
-<p><a href="https://qiita.com/advent-calendar/2018/lancers">Lancers（ランサーズ） Advent Calendar 2018 - Qiita</a><br><a href="https://engineer.blog.lancers.jp/2018/12/lancerskeyboard/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+<a target="_blank" rel="noopener noreferrer" href="https://engineer.blog.lancers.jp/2016/12/%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E4%BD%BF%E3%81%A3%E3%81%A6%E3%82%8B%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E8%AA%BF%E3%81%B9%E3%81%A6%E3%81%BF%E3%81%9F/">engineer.blog.lancers.jp</a></p>
+<p><a target="_blank" rel="noopener noreferrer" href="https://qiita.com/advent-calendar/2018/lancers">Lancers（ランサーズ） Advent Calendar 2018 - Qiita</a><br><a target="_blank" rel="noopener noreferrer" href="https://engineer.blog.lancers.jp/2018/12/lancerskeyboard/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2020-12-04 00-00-00 USキーボード OSの違い キーバインド 違和感/iframe-38d3f82c664bc0d5caf01692fba800871409d800ec9005104b2f84b8868d0b92.png" alt="ランサーズエンジニアのキーボードの世界 | ランサーズ（Lancers）エンジニアブログ"></a>
-<a href="https://engineer.blog.lancers.jp/2018/12/lancerskeyboard/">engineer.blog.lancers.jp</a></p>
+<a target="_blank" rel="noopener noreferrer" href="https://engineer.blog.lancers.jp/2018/12/lancerskeyboard/">engineer.blog.lancers.jp</a></p>
 <p>次回 6日目 まみーさん による 「MySQLの話を何か」です。  </p>
 <p>引き続きよろしくお願いします。  </p>
 

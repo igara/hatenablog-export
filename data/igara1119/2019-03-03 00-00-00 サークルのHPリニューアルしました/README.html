@@ -1108,11 +1108,11 @@ Railscasts-like style (c) Visoft, Inc. (Damien White)
 とかあって前回とは違った問題解決できてきたなぁと思ったんですけどね。  <h2 id="hpリニューアルしました">HPリニューアルしました</h2>
 </li>
 </ul>
-<p>こちらになります。<br><a href="https://shindomeeee.github.io/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+<p>こちらになります。<br><a target="_blank" rel="noopener noreferrer" href="https://shindomeeee.github.io/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2019-03-03 00-00-00 サークルのHPリニューアルしました/iframe-3ad6b13db57a12b1282c482e7b01dd056112daadef1a47e7e7e6c3db53e617b8.png" alt="shin・DO・meeeee"></a>
-<a href="https://shindomeeee.github.io/">shindomeeee.github.io</a></p>
+<a target="_blank" rel="noopener noreferrer" href="https://shindomeeee.github.io/">shindomeeee.github.io</a></p>
 <p>リニューアルをおこなった理由としては先ほどのissues boardの画像で目移りしたかもしれませんが<br>ホームページメンテしんどい問題<br>があって告知用とかマルチに使おうとして結果的に放置されてしまったというのがありました。
-HPの作成段階では実績もなく <a href="https://github.com/shindomeeee/shindomeeee.github.io/pull/3">なんとなくなデザイン作成</a> とかの負債があったなぁと感じてあのHPの立ち位置を考え直し、  </p>
+HPの作成段階では実績もなく <a target="_blank" rel="noopener noreferrer" href="https://github.com/shindomeeee/shindomeeee.github.io/pull/3">なんとなくなデザイン作成</a> とかの負債があったなぁと感じてあのHPの立ち位置を考え直し、  </p>
 <ul>
 <li>みんなブログなら記載する</li>
 <li>実績のみ載せるLP的なページの認識であった方がライトで良さそう
@@ -1198,13 +1198,13 @@ HPの作成段階では実績もなく <a href="https://github.com/shindomeeee/s
 }
 </code></pre><p>肝心なのがoauthScopesで  </p>
 <ul>
-<li><a href="https://www.googleapis.com/auth/script.external_request">https://www.googleapis.com/auth/script.external_request</a>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.googleapis.com/auth/script.external_request">https://www.googleapis.com/auth/script.external_request</a>
 外部にリクエストするUrlFetchApp.fetchの使用を許可</li>
-<li><a href="https://www.googleapis.com/auth/spreadsheets.currentonly">https://www.googleapis.com/auth/spreadsheets.currentonly</a></li>
-<li><a href="https://www.googleapis.com/auth/spreadsheets">https://www.googleapis.com/auth/spreadsheets</a>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.googleapis.com/auth/spreadsheets.currentonly">https://www.googleapis.com/auth/spreadsheets.currentonly</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.googleapis.com/auth/spreadsheets">https://www.googleapis.com/auth/spreadsheets</a>
 SpreadSheetの内容を取得するために必要</li>
-<li><a href="https://www.googleapis.com/auth/firebase.database">https://www.googleapis.com/auth/firebase.database</a></li>
-<li><a href="https://www.googleapis.com/auth/datastore">https://www.googleapis.com/auth/datastore</a>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.googleapis.com/auth/firebase.database">https://www.googleapis.com/auth/firebase.database</a></li>
+<li><a target="_blank" rel="noopener noreferrer" href="https://www.googleapis.com/auth/datastore">https://www.googleapis.com/auth/datastore</a>
 Firestoreに書込むために必要
 で追加してます。<br>あとはスクリプトの追加で<br>blogs.gs  </li>
 </ul>
@@ -1316,9 +1316,9 @@ Firestoreに書込むために必要
 }
 </code></pre><p>な感じで雑にSpreadSheetにあるデータを正とするためにFirestore上のデータ全消しした後で再度追加するようにしてます。<br>このスクリプトに先ほどSpreadSheetのボタンにスクリプトの割り当てをすることでボタンから更新することが可能になります。  </p>
 <h3 id="フロント実装">フロント実装</h3>
-<p><a href="https://github.com/shindomeeee/shindomeeee.github.io/pull/15/files"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/shindomeeee/shindomeeee.github.io/pull/15/files"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2019-03-03 00-00-00 サークルのHPリニューアルしました/iframe-18e49c3ea7ff55d7c7dcc9a6d78f32edc6d89377232d0eab5130573740f506d6.png" alt="Feature／new site by igara · Pull Request #15 · shindomeeee／shindomeeee.github.io"></a>
-<a href="https://github.com/shindomeeee/shindomeeee.github.io/pull/15/files">github.com</a></p>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/shindomeeee/shindomeeee.github.io/pull/15/files">github.com</a></p>
 <p>がっつり変更入れてるので現在(2018/03/03時点)でもPR中にしてます。  </p>
 <h4 id="昔ながらのpublic_html-に-自身で編集したindexhtml-置くような運用辞めた">昔ながらのpublic_html に 自身で編集したindex.html 置くような運用辞めた</h4>
 <p>どう言ったことというと以前はindex.html, css, jsを直接変更していたのを辞めたということです。
@@ -1339,15 +1339,15 @@ gatsby build と NodeJSライブラリのgh-pagesによるmasterブランチ反�
 <p>CSSの運用はCSS Modulesでやるようにしました。
 Reactならstyled-componentsでやる手段もありますがelementとstyleが密結合すぎると感じて基本的なhtmlとcssで運用した方が良いと感じてCSS Modulesでやるようにしてます。
 CSSのやつもNodeJSライブラリのtyped-css-modulesを用いれば型定義化され補完が効くようにできるのでそうしてます。
-あと型導入によってAPIとして使用しているFirestoreが返してくるJSONの形(<a href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/src/thunks/blogs.ts#L14-L39">これとか</a>)であったり、
-よく困惑するコンポーネントが持つ独自の状態(<a href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/src/components/index/wrapper.tsx#L35-L43">これとか</a>やってることとして背景画像が読み込まれたことを保証して背景画像のアニメーションをするようにするためのstate変更をさせる実装してます)
+あと型導入によってAPIとして使用しているFirestoreが返してくるJSONの形(<a target="_blank" rel="noopener noreferrer" href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/src/thunks/blogs.ts#L14-L39">これとか</a>)であったり、
+よく困惑するコンポーネントが持つ独自の状態(<a target="_blank" rel="noopener noreferrer" href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/src/components/index/wrapper.tsx#L35-L43">これとか</a>やってることとして背景画像が読み込まれたことを保証して背景画像のアニメーションをするようにするためのstate変更をさせる実装してます)
 というのも型化されて見通しいいように？しました。  </p>
 <h4 id="jest導入">jest導入</h4>
 <p>Reduxによる状態変更テスト以外に独自のコンポーネントのテストも行うようにして作成したテストファイルに対して必ずカバレッジが100%になるように頑張ってます。<br><img src="https://raw.githubusercontent.com/igara/hatenablog-export
 /master/data/igara1119/2019-03-03 00-00-00 サークルのHPリニューアルしました/6-img-tag.png" alt="f:id:igara1119:20190303183634p:plain" title="f:id:igara1119:20190303183634p:plain" class="hatena-fotolife" itemprop="image"></p>
-<p>API周りはモック使用したり(<a href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/tests/thunks/blogs.test.ts#L103-L168">これとか</a>)、
-デフォルトの値をモックしたりとか(<a href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/tests/components/seo.test.tsx#L166-L205">これとか</a>)、
-画像の読み込み完了時にstate変更されるようなテストをjest.spyOn使用したとか(<a href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/tests/components/index/wrapper.test.tsx#L24-L38">これとか</a>)あります。<br>UI周りはBlogs一覧でリンク何個あるかのテストとかはやってますがどういったスタイル当たるかというかまでやってません。
+<p>API周りはモック使用したり(<a target="_blank" rel="noopener noreferrer" href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/tests/thunks/blogs.test.ts#L103-L168">これとか</a>)、
+デフォルトの値をモックしたりとか(<a target="_blank" rel="noopener noreferrer" href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/tests/components/seo.test.tsx#L166-L205">これとか</a>)、
+画像の読み込み完了時にstate変更されるようなテストをjest.spyOn使用したとか(<a target="_blank" rel="noopener noreferrer" href="https://github.com/shindomeeee/shindomeeee.github.io/blob/3ea21153b43245996e167f44474b73fee2f696cc/tests/components/index/wrapper.test.tsx#L24-L38">これとか</a>)あります。<br>UI周りはBlogs一覧でリンク何個あるかのテストとかはやってますがどういったスタイル当たるかというかまでやってません。
 （そこに関してはjestによるテストというか自動でスクリーンショットとるかstorybookによるもので担保するのが疲弊しないんじゃないかと個人的に思っています  </p>
 
 </div>
