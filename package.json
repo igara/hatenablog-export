@@ -20,18 +20,18 @@
   },
   "homepage": "https://github.com/igara/hatenablog-export#readme",
   "dependencies": {
-    "github-markdown-css": "4.0.0",
-    "highlight.js": "9.18.1",
+    "github-markdown-css": "5.1.0",
+    "highlight.js": "11.5.0",
     "isomorphic-unfetch": "3.0.0",
     "jssha": "2.4.0",
-    "marked": "0.8.2",
+    "marked": "4.0.12",
     "puppeteer": "2.1.1",
     "request-promise": "4.2.5"
   },
   "devDependencies": {
     "@types/jest": "25.1.4",
     "@types/jssha": "2.0.0",
-    "@types/marked": "0.7.3",
+    "@types/marked": "4.0.3",
     "@types/node": "12.12.31",
     "@types/puppeteer": "2.0.1",
     "@types/request-promise": "4.1.46",
