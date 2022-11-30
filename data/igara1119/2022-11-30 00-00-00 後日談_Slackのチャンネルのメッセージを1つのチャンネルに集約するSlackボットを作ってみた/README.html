@@ -1,0 +1,43 @@
+<div class="markdown-body">
+  <p>OGPサムネ用に画像を先に貼ります。<br><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2022-11-30 00-00-00 後日談_Slackのチャンネルのメッセージを1つのチャンネルに集約するSlackボットを作ってみた/0-img-tag.jpg" width="260" height="147" loading="lazy" title="" class="hatena-fotolife" itemprop="image"></p>
+<p>作成物としては1年前のものですが無事1年運用できたので振り返りの記事になります。<br><a target="_blank" rel="noopener noreferrer" href="https://zenn.dev/igara/articles/bot_slack_matome_channnel"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2022-11-30 00-00-00 後日談_Slackのチャンネルのメッセージを1つのチャンネルに集約するSlackボットを作ってみた/iframe-8b31009aee6bc193d47ce009d7508fa3c935385249ac3281495383083d288332.png" alt="Slackのチャンネルのメッセージを1つのチャンネルに集約するSlackボットを作ってみた"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://zenn.dev/igara/articles/bot_slack_matome_channnel">zenn.dev</a></p>
+<p>また所属している会社（ランサーズ株式会社）のアドベントカレンダーの時期でしたのでこちらも目を通していただけますと幸いです。<br><a target="_blank" rel="noopener noreferrer" href="https://qiita.com/advent-calendar/2022/lancers"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2022-11-30 00-00-00 後日談_Slackのチャンネルのメッセージを1つのチャンネルに集約するSlackボットを作ってみた/iframe-afd3f0cbb5625eb4d61e069ffa0a4452e5b921b9c3391df14411b1539a213c72.png" alt="Calendar for Lancers（ランサーズ） | Advent Calendar 2022 - Qiita"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://qiita.com/advent-calendar/2022/lancers">qiita.com</a></p>
+<h3 id="1つのチャンネルに集約するslackボット">1つのチャンネルに集約するSlackボット</h3>
+<h4 id="gasの利用枠から漏れずに運用できた">GASの利用枠から漏れずに運用できた</h4>
+<img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2022-11-30 00-00-00 後日談_Slackのチャンネルのメッセージを1つのチャンネルに集約するSlackボットを作ってみた/1-img-tag.jpg" width="731" height="461" loading="lazy" title="" class="hatena-fotolife" itemprop="image">
+前回の記事の不穏な記載
+
+  
+<p>前回の記事でものすごく不穏な記載があったと思い、実際に運用可能なものなのか気になっていた方いると思います。<br>久しぶりにどのぐらい利用されているのかみたのですが  </p>
+<img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2022-11-30 00-00-00 後日談_Slackのチャンネルのメッセージを1つのチャンネルに集約するSlackボットを作ってみた/2-img-tag.jpg" width="1200" height="342" loading="lazy" title="" class="hatena-fotolife" itemprop="image">
+月の関数呼び出し数
+
+  
+  
+<p>と上限の  とありますが結構まだ余裕がありそうな感じでした。<br>下記は参考値程度の情報ですが参考になればと思います。<br> 下記の2022年11月14日決算説明資料より<br><a target="_blank" rel="noopener noreferrer" href="https://www.lancers.co.jp/ir/library/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2022-11-30 00-00-00 後日談_Slackのチャンネルのメッセージを1つのチャンネルに集約するSlackボットを作ってみた/iframe-74c6e28511f847e3208b93e042fdce701ab796903229b86b7f1dd2c93c226992.png" alt="IRライブラリ | ランサーズ株式会社コーポレートサイト (Lancers,Inc.)"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://www.lancers.co.jp/ir/library/">www.lancers.co.jp</a></p>
+<p>アクティブなチャンネルかはその時々で変わるのであまり参考にならなそうですね。<br>とりあえず1日で500 ～ 700 / 20000 の範囲で動かす実績解除しました。  </p>
+<h4 id="分報以外のチャンネル集約チャンネルを作成した">分報以外のチャンネル集約チャンネルを作成した</h4>
+<p>GASの利用枠が結構あることがわかったので最近は他のチャンネルもまとめるようにしました。<br>それがサムネにもあるbot_clubsやbot_devだったりするのですが作った意図として
+チャンネルに参加していないと知り得ない情報がちょくちょくあるな思い、
+とはいえそこまでチャンネルに参加するまでもないのでメッセージがみえるものだけが欲しかったので追加しました。<br>社内Slackの運用的に分報は、開発用チャンネルは、部活動はとプレフィックスが決まっているので収集すべきチャンネルが自動的に適応しやすい環境だったので追加もしやすかったです。<br>チャンネル集約チャンネルあると便利な点として
+1つのチャンネルで網羅できるのもあるのですが、
+Slackのチャンネル一覧にある機能でセクションを置くのがあると思いますが、
+セクションを閉じたままでチャンネルを確認できるようになるのでスクロールさせる無駄がなくなるんですよね。<br><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2022-11-30 00-00-00 後日談_Slackのチャンネルのメッセージを1つのチャンネルに集約するSlackボットを作ってみた/3-img-tag.jpg" width="377" height="243" loading="lazy" title="" class="hatena-fotolife" itemprop="image"></p>
+<h3 id="おまけ">おまけ</h3>
+<h4 id="bot_notionチャンネルを作成した">bot_notionチャンネルを作成した</h4>
+<p>このチャンネル自体はGASによる集約ではなくNotion公式にあるによる通知です。<br><a target="_blank" rel="noopener noreferrer" href="https://www.tagtec.net/notion-slack-notification/"><img src="https://raw.githubusercontent.com/igara/hatenablog-export
+/master/data/igara1119/2022-11-30 00-00-00 後日談_Slackのチャンネルのメッセージを1つのチャンネルに集約するSlackボットを作ってみた/iframe-5bd0f289a4c63c1aaf7899eabafab4b13b69e722218dc971b8f156b47a527cc1.png" alt="Notionのページ更新をSlackでお知らせする方法。"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://www.tagtec.net/notion-slack-notification/">www.tagtec.net</a></p>
+<p>Notionの記事をちゃんとツリー構造に管理していたらすべての記事に対して変更やコメントしたものもSlackに流れてきます。<br>参加できないミーティングでも通知経由に音声がなくてもミーティングに参加しているかのような体験を感じたり、いち早く変更の情報に気づけるのでNotionによるコミュニケーションもありだなと思ってたりします。  </p>
+
+</div>
